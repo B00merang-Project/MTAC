@@ -1,0 +1,69 @@
+#!/bin/bash
+
+declare -a themes
+themes=( luna embedded zune royale royale-dark olive metal whistler slate plex )
+
+# get flags
+declare -a flags # Declare a new array
+flags=("$@")     # Host all flags in the array
+
+clean() {
+   rm -rf compiler/Debug/3.0/*
+   rm -rf compiler/Debug/3.20/*
+   rm -rf release/*
+}
+
+compile() {
+    ./compile.sh $1
+    clean
+}
+
+# We used getopts to manage flags, but DE override says no
+for f in ${!flags[@]}
+do
+ case ${flags[$f]} in
+
+  --clean)
+   clean
+   echo 'Done'
+   exit
+  ;;
+
+  luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler)
+   theme="${flags[$f]}"
+  ;;
+
+  --all)
+    clean
+    printf 'Compile all themes\n\n'
+    cd compiler
+    
+    # capital first letter
+    for f in ${!themes[@]}
+    do
+
+     fullname=${themes[$f]}
+     name="$(tr '[:lower:]' '[:upper:]' <<< ${fullname:0:1})${fullname:1}"
+     
+     echo -n "$name... "
+     compile ${themes[$f]}
+    done
+
+    printf "\nDone Compiling\n"
+
+    exit
+  ;;
+
+  *)
+    echo "Theme not supported"
+    exit
+  ;;
+ esac
+done
+
+# clean folders
+clean
+
+# execute compiler
+cd compiler
+compile

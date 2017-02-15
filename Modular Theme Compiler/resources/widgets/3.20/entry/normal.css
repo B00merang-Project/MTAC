@@ -1,0 +1,46 @@
+
+/*********
+ * entry *
+ *********/
+entry {
+    padding: 7px 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-radius: 2px;
+    background-color: @theme_base_color;
+    background-image: none;
+    color: @theme_text_color;
+}
+
+entry:active,
+entry selection:focus {
+    border-color: shade(@theme_bg_color, 0.7);
+}
+
+entry selection,
+entry:selected,
+entry selection,
+entry:selected:focus {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+entry:disabled {
+    background-color: shade(@theme_bg_color, 0.95);
+    background-image: none;
+    color: mix(@theme_text_color, @theme_base_color, 0.5);
+}
+
+entry progress {
+    border-width: 0;
+    border-radius: 2px;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+    color: @theme_selected_fg_color;
+}
+
+treeview entry {
+	padding: 0 6px;
+}
+

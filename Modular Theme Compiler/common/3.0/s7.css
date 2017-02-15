@@ -1,0 +1,34 @@
+
+/*************
+ * separator *
+ *************/
+.sidebar.view.separator,
+.view.separator,
+.separator {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.9);
+    color: shade(@theme_bg_color, 0.9);
+}
+
+.button .separator,
+.button.separator {
+    border-color: shade(@theme_bg_color, 0.95);
+}
+
+.button .separator:insensitive,
+.button.separator:insensitive {
+    border-color: shade(@theme_bg_color, 0.85);
+}
+
+.primary-toolbar GtkSeparatorToolItem,
+.primary-toolbar .separator,
+.primary-toolbar .separator:insensitive,
+.toolbar GtkSeparatorToolItem,
+.toolbar .separator,
+.toolbar .separator:insensitive {
+    -GtkWidget-window-dragging: true;
+
+    border-color: shade(@toolbar_bg_color, 0.95);
+    color: shade(@toolbar_bg_color, 0.95);
+}

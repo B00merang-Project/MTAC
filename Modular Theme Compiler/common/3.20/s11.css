@@ -1,0 +1,614 @@
+
+/***********
+ * tooltip *
+ ***********/
+tooltip,
+tooltip {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_tooltip_bg_color, 0.8);
+    border-radius: 2px;
+    background-color: @theme_tooltip_bg_color;
+    background-image: none;
+    color: @theme_tooltip_fg_color;
+}
+
+tooltip *,
+tooltip,
+tooltip * {
+    background-color: transparent;
+}
+
+/************
+ * treeview *
+ ************/
+treeview {
+    -treeview-vertical-separator: 0;
+    -GtkWidget-focus-line-width: 1;
+    -GtkWidget-focus-padding: 1;
+}
+
+treeview.dnd {
+    border-width: 1px;
+    border-style: solid;
+    border-color: @theme_selected_bg_color;
+    border-radius: 0;
+}
+
+treeview entry {
+    border-radius: 0;
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+/************
+ * viewport *
+ ************/
+GtkViewportframe {
+    border-width: 0;
+}
+
+.view {
+    background-color: @theme_base_color;
+    color: @theme_text_color;
+}
+
+.view:disabled,
+.view:disabled:disabled {
+    background-color: shade(@theme_base_color, 0.9);
+    color: mix(@theme_fg_color, @theme_bg_color, 0.5);
+}
+
+.view:selected,
+.view:selected:focus {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+/**************
+ * action-bar *
+ **************/
+actionbar {
+    padding: 4px;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    background-color: @theme_bg_color;
+    background-image: none;
+    color: @theme_fg_color;
+}
+
+actionbar button.text-button {
+    padding: 4px;
+}
+
+actionbar buttonimage-button {
+    padding: 6px;
+}
+
+actionbar .title {
+    font: bold;
+    padding: 0 12px;
+}
+
+actionbar .subtitle {
+    font: smaller;
+    padding: 0 12px;
+}
+
+/***************
+ * search bars *
+ ***************/
+searchbar {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    background-color: shade(@theme_bg_color, 0.98);
+}
+
+searchbar button.close-button {
+    padding: 4px;
+}
+
+/********************
+ * various choosers *
+ ********************/
+GtkFontButton separator,
+.separator,
+GtkFileChooserButton separator,
+.separator {
+    /* always disable separators */
+    -GtkWidget-wide-separators: true;
+    -GtkWidget-horizontal-separator: 0;
+    -GtkWidget-vertical-separator: 0;
+}
+
+GtkFontButton label:last-child {
+    color: alpha(currentColor, 0.7);
+}
+
+GtkFileChooserButton image:last-child {
+    color: alpha(currentColor, 0.7);
+}
+
+/*********************
+ * app notifications *
+ *********************/
+.app-notification {
+    border-style: solid;
+    border-color: shade(@theme_base_color, 0.8);
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 2px 2px;
+    padding: 8px;
+    background-color: @theme_base_color;
+    background-image: none;
+    color: @theme_text_color;
+}
+
+/*******
+ * osd *
+ *******/
+.background.osd {
+    color: @osd_fg;
+    background-color: @osd_bg;
+}
+
+overlay.osd {
+    background-color: transparent;
+}
+
+.osdframe {
+    background-clip: border-box;
+    background-origin: border-box;
+}
+
+.osd button,
+.osd button {
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@osd_bg, 0.8);
+    border-radius: 2px;
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+    color: @osd_fg;
+}
+
+.osd button:prelight,
+.osd button:hover,
+.osd button:hover {
+    border-color: shade(@osd_bg, 0.7);
+    background-color: shade(@osd_bg, 1.10);
+    background-image: none;
+}
+
+.osd button:active,
+.osd button:active,
+.osd GtkMenuButtonbutton:active {
+    border-color: shade(@osd_bg, 0.8);
+    background-color: shade(@osd_bg, 0.95);
+    background-image: none;
+}
+
+.osd button:active:hover,
+.osd button:active:hover,
+.osd GtkMenuButtonbutton:active:hover {
+    border-color: shade(@osd_bg, 0.7);
+}
+
+.osd button:disabled,
+.osd button:disabled {
+    border-color: shade(@osd_bg, 0.85);
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+}
+
+.osd button:active *:disabled,
+.osd button:active *:disabled {
+    background-color: shade(@osd_bg, 0.80);
+    background-image: none;
+}
+
+.osd toolbar {
+    -GtkToolbar-button-relief: normal;
+
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: shade(@osd_bg, 0.8);
+    background-color: @osd_bg;
+    background-image: none;
+    color: @osd_fg;
+}
+
+.osd toolbar button {
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@osd_bg, 0.8);
+    border-radius: 2px;
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+    color: @osd_fg;
+}
+
+.osd combobox button.combo:hover {
+    border-color: shade(@osd_bg, 0.7);
+    background-color: shade(@osd_bg, 1.10);
+    background-image: none;
+}
+
+.osd combobox button.combo:checked {
+    border-color: shade(@osd_bg, 0.8);
+    background-color: shade(@osd_bg, 0.95);
+    background-image: none;
+}
+
+.osd combobox button.combo:checked:hover {
+    border-color: shade(@osd_bg, 0.7);
+}
+
+.osd toolbar button:focus,
+.osd combobox button.combo:hover:focus,
+.osd combobox button.combo:checked:focus,
+.osd combobox button.combo:checked:hover:focus {
+    border-color: shade(@osd_bg, 0.7);
+}
+
+.osd toolbar button:disabled {
+    border-color: shade(@osd_bg, 0.85);
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+}
+
+.osd combobox button.combo:checked *:disabled {
+    border-color: shade(@osd_bg, 0.75);
+    background-color: shade(@osd_bg, 0.80);
+    background-image: none;
+}
+
+.osd toolbar button:first-child {
+    border-radius: 2px 0 0 2px;
+    border-width: 1px 0 1px 1px;
+    box-shadow: inset -1px 0 shade(@osd_bg, 0.9);
+}
+
+.osd toolbar button:last-child {
+    box-shadow: none;
+    border-radius: 0 2px 2px 0;
+    border-width: 1px 1px 1px 0;
+}
+
+.osd toolbar button:only-child,
+.osd toolbar toolbutton button,
+.osd toolbar toolbutton:only-child button,
+.osd toolbar toolbutton:last-child button,
+.osd toolbar toolbutton:first-child button {
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+}
+
+.osd toolbar separator,
+.separator {
+    color: shade(@osd_bg, 0.9);
+}
+
+/* used by gnome-settings-daemon's media-keys OSD */
+.osd trough {
+    background-color: shade(@osd_bg, 0.8);
+}
+
+..osd progressbar.vertical progress {
+    background-color: @osd_fg;
+}
+
+.osd scale slider {
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+    /* we will draw the border using box shadow for now */
+    box-shadow: inset 1px 0 shade(@osd_bg, 0.8),
+                inset 0 1px shade(@osd_bg, 0.8),
+                inset -1px 0 shade(@osd_bg, 0.8),
+                inset 0 -1px shade(@osd_bg, 0.8);
+}
+
+.osd scale slider:hover {
+    box-shadow: inset 1px 0 shade(@osd_bg, 0.7),
+                inset 0 1px shade(@osd_bg, 0.7),
+                inset -1px 0 shade(@osd_bg, 0.7),
+                inset 0 -1px shade(@osd_bg, 0.7);
+}
+
+.osd scale slider:disabled {
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+    box-shadow: inset 1px 0 shade(@osd_bg, 0.85),
+                inset 0 1px shade(@osd_bg, 0.85),
+                inset -1px 0 shade(@osd_bg, 0.85),
+                inset 0 -1px shade(@osd_bg, 0.85);
+}
+
+.osd scale trough {
+    border-color: shade(@osd_bg, 0.8);
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+}
+
+.osd scale trough.highlight {
+    border-color: @theme_selected_bg_color;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+.osd scale trough:disabled,
+.osd scale trough.highlight:disabled {
+    border-color: shade(@osd_bg, 0.85);
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+}
+
+.osd progressbar,
+progressbar .osd {
+    -progressbar-xspacing: 0;
+    -progressbar-yspacing: 2px;
+    -progressbar-min-horizontal-bar-height: 2px;
+
+    padding: 0;
+}
+
+.osd progressbar trough,
+progressbar .osd trough {
+    padding: 0;
+    border-style: none;
+    border-radius: 0;
+    background-image: none;
+    background-color: transparent;
+}
+
+.osd progressbar.vertical progress,
+progressbar ..osd progressbar.vertical progress {
+    border-style: none;
+    border-radius: 0;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+.osd view,
+.osd.view {
+    background-color: @osd_base;
+}
+
+.osd scrollbar trough {
+    background-color: @osd_bg;
+}
+
+.osd scrollbar slider {
+    border-width: 1px;
+    border-color: mix(shade(@osd_base, 0.87), @osd_fg, 0.21);
+    border-radius: 0;
+    background-color: mix(@osd_base, @osd_fg, 0.21);
+}
+
+.osd scrollbar slider:hover {
+    border-color: mix(shade(@osd_base, 0.87), @osd_fg, 0.31);
+    background-color: mix(@osd_base, @osd_fg, 0.31);
+}
+
+.osd scrollbar slider:active {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: @theme_selected_bg_color;
+}
+
+.osd iconview.cell:selected,
+.osd iconview.cell:selected:focus {
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 3px;
+    border-color: @osd_fg;
+    outline-color: transparent;
+}
+
+/* used by Documents */
+.osd .page-thumbnail {
+    border-style: solid;
+    border-width: 1px;
+    border-color: shade(@osd_bg, 0.9);
+    /* when there's no pixbuf yet */
+    background-color: @osd_bg;
+}
+
+/******************************
+ * destructive action buttons *
+ ******************************/
+.destructive-actionbutton {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@error_color, 0.8);
+    border-radius: 2px;
+    background-color: @error_color;
+    background-image: none;
+    color: mix(@theme_selected_fg_color, @error_color, 0.1);
+}
+
+.destructive-actionbutton:hover {
+    border-color: shade(@error_color, 0.7);
+    background-color: shade(@error_color, 1.12);
+    background-image: none;
+}
+
+.destructive-actionbutton:active {
+    border-color: shade(@error_color, 0.8);
+    background-color: shade(@error_color, 0.87);
+    background-image: none;
+}
+
+.destructive-actionbutton:hover:active {
+    border-color: shade(@error_color, 0.7);
+}
+
+/******************************
+ * suggested action buttons *
+ ******************************/
+.suggested-actionbutton {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    border-radius: 2px;
+    background-color: shade(@theme_selected_bg_color, 1.18);
+    background-image: none;
+    color: mix(@theme_selected_fg_color, @theme_selected_bg_color, 0.1);
+}
+
+.suggested-actionbutton:hover {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+    background-color: shade(@theme_selected_bg_color, 1.20);
+    background-image: none;
+}
+
+.suggested-actionbutton:active {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: shade(@theme_selected_bg_color, 1.05);
+    background-image: none;
+}
+
+.suggested-actionbutton:hover:active {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+}
+
+/******************
+ * selection mode *
+ ******************/
+.selection-modeheaderbar,
+.selection-modetoolbar {
+    border-style: solid;
+    border-color: @theme_selected_bg_color;
+    background-color: shade(@theme_selected_bg_color, 1.6);
+    background-image: none;
+    color: @theme_selected_bg_color;
+}
+
+.selection-modeheaderbar {
+    border-top-color: shade(@theme_selected_bg_color, 1.6);
+    border-bottom-color: @theme_selected_bg_color;
+}
+
+.selection-modetoolbar {
+    padding: 4px;
+}
+
+/* regular button */
+.selection-modeheaderbar button,
+.selection-modetoolbar button,
+.selection-modetoolbar toolbutton button {
+    border-width: 1px;
+    border-style: solid;
+    border-color: @theme_selected_bg_color;
+    border-radius: 2px;
+    background-color: shade(@theme_selected_bg_color, 1.68);
+    background-image: none;
+    color: shade(@theme_selected_bg_color, 0.8);
+}
+
+.selection-modeheaderbar button:hover,
+.selection-modecombobox button.combo:hover,
+.selection-modetoolbar toolbutton button:hover {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: shade(@theme_selected_bg_color, 1.70);
+    background-image: none;
+}
+
+.selection-modeheaderbar button:active,
+.selection-modecombobox button.combo:checked,
+.selection-modetoolbar toolbutton button:active {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: shade(@theme_selected_bg_color, 1.55);
+    background-image: none;
+}
+
+.selection-modeheaderbar button:hover:active,
+.selection-modecombobox button.combo:hover:active,
+.selection-modetoolbar toolbutton button:hover:active {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+}
+
+/* suggested button */
+.selection-modeheaderbar .suggested-actionbutton,
+.selection-modetoolbar .suggested-actionbutton,
+.selection-modetoolbar toolbutton.suggested-action button {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    border-radius: 2px;
+    background-color: shade(@theme_selected_bg_color, 1.18);
+    background-image: none;
+    color: mix(@theme_selected_fg_color, @theme_selected_bg_color, 0.1);
+}
+
+.selection-modeheaderbar .suggested-actionbutton:hover,
+.selection-modetoolbar .suggested-actionbutton:hover,
+.selection-modetoolbar toolbutton.suggested-action button:hover {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+    background-color: shade(@theme_selected_bg_color, 1.20);
+    background-image: none;
+}
+
+.selection-modeheaderbar .suggested-actionbutton:active,
+.selection-modetoolbar .suggested-actionbutton:active,
+.selection-modetoolbar toolbutton.suggested-action:active {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: shade(@theme_selected_bg_color, 1.05);
+    background-image: none;
+}
+
+.selection-modeheaderbar .suggested-actionbutton:hover:active,
+.selection-modetoolbar .suggested-actionbutton:hover:active,
+.selection-modetoolbar toolbutton.suggested-action button:hover:active {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+}
+
+/* menu button */
+.selection-modeheaderbar .selection-menubutton,
+.selection-modetoolbar .selection-menubutton {
+    border-style: none;
+    background-color: transparent;
+    background-image: none;
+    color: shade(@theme_selected_bg_color, 0.8);
+}
+
+.selection-modetoolbar label,
+.selection-modetoolbar .selection-menubutton label {
+    color: shade(@theme_selected_bg_color, 0.7);
+}
+
+.selection-modeheaderbar .selection-menubutton:hover,
+.selection-modetoolbar label:hover,
+.selection-modetoolbar .selection-menubutton:hover,
+.selection-modetoolbar .selection-menubutton label:hover {
+    color: shade(@theme_selected_bg_color, 0.7);
+}
+
+.selection-modeheaderbar .selection-menubutton:active,
+.selection-modetoolbar .selection-menubutton:active {
+    color: shade(@theme_selected_bg_color, 0.8);
+    box-shadow: none;
+}
+
+/*************************
+ * touch text selections *
+ *************************/
+GtkBubbleWindow {
+    border-radius: 2px;
+    background-clip: border-box;
+}
+
+GtkBubbleWindow.osd.background {
+    background-color: @osd_bg;
+}
+
+GtkBubbleWindow toolbar {
+    background-color: transparent;
+}
+

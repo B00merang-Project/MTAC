@@ -1,0 +1,205 @@
+#!/bin/bash
+
+theme="$1"
+
+# run functions
+make_env() {
+ cp "links/colors/$theme.css" Debug/3.0/gtk.css
+ touch Debug/3.0/gtk-widgets.css
+
+ cp "links/colors-3.20/$theme.css" Debug/3.20/gtk.css
+ touch Debug/3.20/gtk-widgets.css
+}
+
+make_index() {
+ echo "[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=$1
+Comment=Windows XP themes for Linux OSes
+Comment=Author : Christian Medel (Elbullazul)
+Version=rolling
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=$1
+MetacityTheme=$1
+ButtonLayout=:minimize,maximize,close" >> "$2"
+}
+
+package_up() {
+
+# capital first letter
+ name="$(tr '[:lower:]' '[:upper:]' <<< ${theme:0:1})${theme:1}"
+
+# adjust name if theme is royale dark
+ if [[ "$name" == 'Royale-dark' ]]; then
+  name="Royale Dark"
+ fi
+
+ fullname="Windows XP $name"
+
+ case $fullname in
+  "Windows XP Plex")
+    fullname="Windows Longhorn Plex"
+  ;;
+  "Windows XP Slate")
+    fullname="Windows Longhorn Slate"
+  ;;
+  "Windows XP Olive")
+    fullname="Windows XP Homestead"
+  ;;
+  "Windows XP Metal")
+    fullname="Windows XP Metallic"
+  ;;
+  "Windows XP Whistler")
+    fullname="Windows Whistler"
+  ;;
+  "Windows XP 8")
+    fullname="Windows 8.1"
+  ;;
+ esac
+
+ cd ..
+
+ mkdir "release/$fullname"
+ cp -a "extras/cinnamon/$theme" "release/$fullname/cinnamon"
+ cp -a "extras/gtk2/$theme" "release/$fullname/gtk-2.0"
+ cp -a "extras/metacity/$theme" "release/$fullname/metacity-1"
+ cp -a "extras/unity/$theme" "release/$fullname/unity"
+
+ # if file exits copy xfwm theme
+ if [ -d "extras/xfce/$theme" ]; then
+  cp -a  "extras/xfce/$theme" "release/$fullname/xfwm4"
+ fi
+
+ cp -a "compiler/Debug/3.0" "release/$fullname/gtk-3.0"
+ cp -a "compiler/Debug/3.20" "release/$fullname/gtk-3.20"
+
+ cd "release/$fullname/gtk-3.0"
+ ln -s ../gtk-3.20 gtk-3.20
+ cd ../../..
+
+ make_index "$fullname" "release/$fullname/index.theme"
+# zip -r "release/$fullname.zip" "release/$fullname" > /dev/null 2>&1
+# mv release/*.zip release/ZIP
+
+ cd compiler
+}
+
+conditions() {
+ # select case & make operations
+
+ case $1 in
+  1)
+    cat links/widgets/wildcard/$theme.css >> "$2/gtk-widgets.css";;
+  2)
+    cat links/widgets/button/$theme.css >> "$2/gtk-widgets.css"
+    cat links/widgets/entry/$theme.css >> "$2/gtk-widgets.css";;
+  3)
+    cat links/widgets/combo/$theme.css >> "$2/gtk-widgets.css";;
+  4)
+    cat links/widgets/menumenubar/$theme.css >> "$2/gtk-widgets.css";;
+  5)
+    cat links/widgets/notebook/$theme.css >> "$2/gtk-widgets.css";;
+  6)
+    cat links/widgets/scrollprogress/$theme.css >> "$2/gtk-widgets.css";;
+  7)
+    cat links/widgets/headerbarseparator/$theme.css >> "$2/gtk-widgets.css";;
+  8)
+    cat links/widgets/spinbutton/$theme.css >> "$2/gtk-widgets.css";;
+  9)
+    cat links/widgets/switch/$theme.css >> "$2/gtk-widgets.css";;
+  10)
+    cat links/widgets/x-bar/$theme.css >> "$2/gtk-widgets.css"
+    cat links/widgets/linkedbuttons/$theme.css >> "$2/gtk-widgets.css";;
+  11)    
+    cat links/widgets/titlebar/$theme.css >> "$2/gtk-widgets.css";;
+   *);;
+ esac
+
+}
+
+get_code() {
+ start=1
+ end=12
+ for (( c=$start; c<=$end; c++  ))
+ do
+  cat "links/$2/s$c.css" >> "$1/gtk-widgets.css"
+
+  # Inject code here, depending on stuff
+  conditions $c "$1"
+  # depending on number, we'll use different stuff
+ done
+}
+
+get_assets() {
+
+# copy assets
+ cp -R links/assets/3.0/$theme/. Debug/3.0
+ cp -R links/assets/3.20/$theme/. Debug/3.20/
+
+ case $theme in
+  plex)
+    cp links/common/assets-plex.css Debug/3.0/gtk-widgets-assets.css
+    cp -a links/common/apps-all Debug/3.0/apps
+    cp -a links/common/apps-plex/* Debug/3.0/apps
+
+# 3.20
+    cp links/common-3.20/assets-plex.css Debug/3.20/gtk-widgets-assets.css
+    cp -a links/common-3.20/apps-all Debug/3.20/apps
+    ;;
+  slate)
+    cp links/common/assets-slate.css Debug/3.0/gtk-widgets-assets.css
+    cp -a links/common/apps-all Debug/3.0/apps
+    cp -a links/common/apps-slate/* Debug/3.0/apps
+# 3.20
+    cp links/common-3.20/assets-slate.css Debug/3.20/gtk-widgets-assets.css
+    cp -a links/common-3.20/apps-all Debug/3.20/apps
+    ;;
+  whistler)
+    cp links/common/assets-whistler.css Debug/3.0/gtk-widgets-assets.css
+    cp -a links/common/apps-all Debug/3.0/apps
+    cp -a links/common/apps-whistler/* Debug/3.0/apps
+# 3.20
+    cp links/common-3.20/assets-whistler.css Debug/3.20/gtk-widgets-assets.css
+    cp -a links/common-3.20/apps-all Debug/3.20/apps
+    cp -a links/common-3.20/apps-whistler/* Debug/3.20/apps
+    ;;
+  8)
+    cp links/common/assets-8.css Debug/3.0/gtk-widgets-assets.css
+    cp -a links/common/apps-all Debug/3.0/apps
+
+# 3.20
+    cp links/common-3.20/assets-all.css Debug/3.20/gtk-widgets-assets.css
+    cp -a links/common-3.20/apps-all Debug/3.20/apps
+    ;;
+  *)
+    cp links/common/assets-all.css Debug/3.0/gtk-widgets-assets.css
+    cp -a links/common/apps-all Debug/3.0/apps
+
+# 3.20
+    cp links/common-3.20/assets-all.css Debug/3.20/gtk-widgets-assets.css
+    cp -a links/common-3.20/apps-all Debug/3.20/apps
+    ;;
+ esac
+
+ # get settings.ini
+ cp links/common/settings.ini Debug/3.0
+ cp links/common-3.20/settings.ini Debug/3.20
+}
+
+put_thumbs() {
+ cp -a "links/thumbnails/$theme.png" Debug/3.0/thumbnail.png
+ cp -a "links/thumbnails/$theme.png" Debug/3.20/thumbnail.png
+}
+
+make_env
+get_code "Debug/3.0" "common"
+
+# 3.20
+get_code "Debug/3.20" "common-3.20"
+get_assets
+put_thumbs
+package_up
+
+echo "Done."
