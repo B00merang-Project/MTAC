@@ -1,0 +1,19 @@
+/***********
+ * menubar *
+ ***********/
+.menubar {
+    -GtkWidget-window-dragging: true;
+
+    border-width: 0;
+    border-style: solid;
+    border-color: shade(@menubar_bg_color, 0.8);
+    background-color: transparent;
+    background-size: cover;
+    background-image: linear-gradient(to right, #4f88d6 2%, #64a1e8 13.8%, #70b0f3 27%, #70b0f3 73%, #64a1e8 86.2%, #4f88d6 98%);
+    color: @menubar_fg_color;
+}
+
+.menubar:backdrop {
+    background-image: linear-gradient(to top, #4f88d6);
+}
+

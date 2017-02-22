@@ -1,0 +1,139 @@
+
+/************
+ * textview *
+ ************/
+GtkTextView {
+    background-color: @theme_base_color;
+    color: @theme_text_color;
+}
+
+/* Firefox adress bar */
+label.separator {
+  color: @theme_fg_color; }
+  label.separator:backdrop {
+    color: @insensitive_fg_color; }
+label selection {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color; }
+label:backdrop {
+  color: alpha(@theme_fg_color, 0.5); }
+
+/* Textview selection background */
+.view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected,
+.view text:selected:focus,
+iconview text:selected:focus,
+textview text:selected:focus,
+.view text:selected,
+iconview text:selected,
+textview text:selected, .view text selection:focus, iconview text selection:focus, .view text selection, iconview text selection,
+textview text selection:focus,
+textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection:focus, spinbutton:not(.vertical) selection,
+entry selection:focus,
+entry selection, modelbutton.flat:selected, popover.background checkbutton:selected,
+popover.background radiobutton:selected,
+.menuitem.button.flat:selected, treeview.view:selected:focus, treeview.view:selected, row:selected, calendar:selected {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color; }
+
+/*****************
+ * color chooser *
+ *****************/
+colorswatch,
+colorswatch:selected {
+    border-width: 1px;
+    border-style: solid;
+    border-color: alpha(black, 0.1);
+    border-radius: 1px;
+    background-color: transparent;
+    background-clip: border-box;
+}
+
+colorswatch:hover,
+colorswatch:selected:hover {
+    border-color: alpha(black, 0.3);
+}
+
+colorswatch.color-dark:hover {
+}
+
+colorswatch.color-light:hover {
+}
+
+colorswatch.color-light:selected:hover,
+colorswatch.color-dark:selected:hover {
+    background-image: none;
+}
+
+colorswatch.left,
+colorswatch:first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+colorswatch.right,
+colorswatch:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+colorswatch:only-child {
+    border-radius: 2px;
+}
+
+colorswatch.top {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+colorswatch.bottom {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+colorchooser #add-color-button {
+    background-clip: padding-box;
+    border-color: alpha(black, 0.1);
+    background-color: shade(@theme_bg_color, 0.95);
+    color: @theme_fg_color;
+}
+
+colorchooser #add-color-button:hover {
+    border-color: alpha(black, 0.3);
+    background-color: shade(@theme_bg_color, 0.90);
+    color: @theme_fg_color;
+}
+
+.color-active-badge,
+.color-active-badge:selected {
+    border-width: 1px;
+    border-style: solid;
+    border-width: 2px;
+    background-color: transparent;
+}
+
+.color-active-badge.color-light,
+.color-active-badge.color-light:hover {
+    border-color: alpha(black, 0.3);
+    color: alpha(black, 0.3);
+}
+
+.color-active-badge.color-dark,
+.color-active-badge.color-dark:hover {
+    border-color: alpha(white, 0.3);
+    color: alpha(white, 0.3);
+}
+
+GtkColorEditor colorswatch {
+    border-radius: 2px;
+}
+
+GtkColorEditor colorswatch.color-dark:hover,
+GtkColorEditor colorswatch.color-light:hover {
+    background-image: none;
+    border-color: alpha(black, 0.3);
+}
+
+GtkColorButtonbutton {
+    padding: 2px;
+}
+

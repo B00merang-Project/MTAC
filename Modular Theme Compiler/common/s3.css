@@ -1,0 +1,170 @@
+
+/****************
+ * cell and row *
+ ****************/
+.cell {
+    border-width: 0;
+    border-radius: 0;
+}
+
+.cell:selected,
+.cell:selected:focus {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+row:selected,
+row:selected:hover,
+row:selected:focus {
+    -GtkWidget-focus-padding: 1;
+    -GtkWidget-focus-line-width: 0;
+
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+    color: @theme_selected_fg_color;
+}
+
+/*******************
+ * check and radio *
+ *******************/
+.check,
+.radio,
+.check:insensitive,
+.radio:insensitive {
+    border-style: none;
+    background-color: transparent;
+}
+
+GtkCheckButton:hover,
+GtkCheckButton:active:hover,
+GtkCheckButton:selected,
+GtkCheckButton:selected:focus {
+    background-color: transparent;
+}
+
+/*****************
+ * column-header *
+ *****************/
+column-header .button,
+column-header .button:active {
+    border-width: 0 1px 1px 0;
+    border-radius: 0;
+}
+
+column-header .button,
+column-header .button:active,
+column-header .button:focus,
+column-header .button:active:focus {
+    border-color: shade(@theme_base_color, 0.9);
+    border-bottom-color: shade(@theme_base_color, 0.8);
+    background-color: shade(@theme_base_color, 0.97);
+    background-image: none;
+}
+
+column-header .button:hover,
+column-header .button:active:hover,
+column-header .button:hover:focus,
+column-header .button:active:hover:focus {
+    border-color: shade(@theme_base_color, 0.9);
+    border-bottom-color: shade(@theme_base_color, 0.8);
+    background-color: shade(@theme_base_color, 0.99);
+    background-image: none;
+}
+
+column-header:last-child .button {
+    border-width: 0 0 1px 0;
+}
+
+/****************
+ * content view *
+ ****************/
+.content-view.view {
+    background-color: @theme_base_color;
+}
+
+.content-view.view:prelight {
+    background-color: alpha(@theme_selected_bg_color, 0.6);
+}
+
+.content-view.view:selected,
+.content-view.view:active {
+    background-color: @theme_selected_bg_color;
+}
+
+.content-view.view:insensitive {
+    background-color: shade(@theme_base_color, 0.9);
+}
+
+GdMainIconView.content-view {
+    -GdMainIconView-icon-size: 40;
+}
+
+GtkIconView.content-view.check {
+    background-color: transparent;
+}
+
+GtkIconView.content-view.check:active {
+    background-color: transparent;
+}
+
+.content-view.view.check,
+.content-view.view.check:active {
+    background-color: transparent;
+}
+
+GtkIconView.content-view.check:prelight,
+GtkIconView.content-view.check:insensitive,
+GtkIconView.content-view.check:selected {
+    background-color: transparent;
+}
+
+/****************
+ * drawing area *
+ ****************/
+GtkDrawingArea {
+    background-color: @theme_base_color;
+}
+
+GtkDrawingArea:insensitive {
+    background-color: shade(@theme_base_color, 0.9);
+}
+
+/***********
+ * gtkhtml *
+ ***********/
+GtkHTML {
+    background-color: @theme_base_color;
+    color: @theme_text_color;
+}
+
+/***********
+* calendar *
+************/
+GtkCalendar {
+    padding: 4px;
+}
+
+GtkCalendar:inconsistent {
+    color: mix(@theme_fg_color, @theme_bg_color, 0.5);
+}
+
+GtkCalendar.view,
+GtkCalendar.header,
+GtkCalendar.button,
+GtkCalendar.button:hover,
+GtkCalendar.button:insensitive {
+    border-width: 0;
+    background-color: transparent;
+    background-image: none;
+}
+
+.highlight,
+GtkCalendar.highlight {
+    border-width: 0;
+    background-color: transparent;
+    color: @theme_selected_bg_color;
+}
+

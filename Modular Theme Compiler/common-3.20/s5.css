@@ -1,0 +1,197 @@
+
+/***************
+ * menubaritem *
+ ***************/
+menubar > menuitem,
+menubar menuitem {
+    padding: 3px 5px;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: @menubar_fg_color;
+}
+
+menubar > menuitem:hover,
+menubar menuitem:hover {
+    border-color: mix(@menubar_bg_color, @menubar_fg_color, 0.21);
+    background-color: mix(@menubar_bg_color, @menubar_fg_color, 0.21);
+    background-image: none;
+    color: shade(@menubar_fg_color, 1.08);
+}
+
+menubar > menuitem:hover,
+menubar menuitem *:hover {
+    color: shade(@menubar_fg_color, 1.08);
+}
+
+/************
+ * menuitem *
+ ************/
+treemenu menuitem {
+    padding: 0;
+    border-width: 0;
+}
+
+menuitem,
+menu > menuitem,
+menu menuitem {
+    -GtkMenuItem-arrow-scaling: 0.5;
+    padding: 3px 3px;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0;
+    background-color: @menu_bg_color;
+    background-image: none;
+    color: @menu_fg_color;
+}
+
+menu menuitem:active,
+menu menuitem:hover {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+menu menuitem:active,
+menu menuitem *:active,
+menu menuitem:hover,
+menu menuitem *:hover {
+    color: @theme_selected_fg_color;
+}
+
+menu menuitem:disabled,
+menu menuitem *:disabled {
+    color: mix(@menu_fg_color, @menu_bg_color, 0.5);
+}
+
+menuitem check,
+menuitem radio,
+menuitem check:hover,
+menuitem radio:hover,
+menuitem check:disabled,
+menuitem radio:disabled {
+    border-style: none;
+    background-color: transparent;
+    background-image: none;
+}
+
+menuitem check:active,
+menuitem radio:active {
+    border-style: none;
+    background-color: transparent;
+}
+
+menuitem calendar:indeterminated {
+    color: mix(@menu_fg_color, @menu_bg_color, 0.5);
+}
+
+menuitem calendarbutton {
+    border-style: none;
+    background-color: transparent;
+    background-image: none;
+}
+
+menuitem entry {
+    border-color: shade(@menu_bg_color, 0.7);
+    background-color: @menu_bg_color;
+    background-image: none;
+    color: @menu_fg_color;
+}
+
+menuitem entry:active,
+menuitem entry selection:focus {
+    border-color: shade(@menu_bg_color, 0.7);
+}
+
+menuitem accelerator {
+    color: alpha(@menu_fg_color, 0.6);
+}
+
+menuitem accelerator:hover {
+    color: alpha(@theme_selected_fg_color, 0.8);
+}
+
+menuitem accelerator:disabled {
+    color: alpha(mix(@menu_fg_color, @menu_bg_color, 0.5), 0.6);
+}
+
+GtkModel MenuItem box image {
+    padding-right: 4px;
+}
+
+/************
+ * popovers *
+ ************/
+GtkPopover {
+    margin: 10px;
+    padding: 2px;
+    border-radius: 2px;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-width: 1px;
+    border-style: solid;
+    background-clip: border-box;
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+    box-shadow: 0 2px 3px alpha(black, 0.5);
+}
+
+GtkPopover.osd {
+    box-shadow: 0 2px 7px 3px alpha(black, 0.5);
+}
+
+GtkPopover > list,
+GtkPopover > .view,
+GtkPopover > toolbar {
+    background-color: transparent;
+}
+
+GtkPopover.osd > toolbar button {
+    border-radius: 0;
+    border-width: 0;
+    background-image: none;
+    background-color: transparent;
+}
+
+GtkPopover separator,
+.separator {
+    border: 0;
+    background-color: transparent;
+    color: alpha(currentColor, 0.5);
+    font-size: 80%;
+    font-weight: bold;
+}
+
+popover.osd button,
+popover.osd button:active,
+popover.osd button:disabled,
+GtkModelButtonbutton:checked:disabled {
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+    border-style: none;
+    box-shadow: none;
+    color: @theme_fg_color;
+}
+
+popover.osd button:active:hover,
+popover.osd button:hover,
+popover.osd button:selected {
+    border-width: 0;
+    border-color: transparent;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+    color: @theme_selected_fg_color;
+}
+
+/* Nautilus rename popup */
+.csd popover.background, popover.background {
+    box-shadow: 0 0 2px 0px gray;
+    border: 1px solid @borders; }
+popover.background:backdrop {
+    background-color: @theme_bg_color;
+    box-shadow: none; 
+}
+

@@ -18,7 +18,7 @@ write_file() {
  if [ -a links/widgets/$1/$2/$theme.css ]; then
   cat links/widgets/$1/$2/$theme.css >> Debug/$1/gtk-widgets.css
  else
-  echo "[ERROR] File missing in $1/$2: $theme.css"
+  printf "\n[ERROR] File missing in $1/$2: $theme.css "
  fi
 
  tput setaf 7

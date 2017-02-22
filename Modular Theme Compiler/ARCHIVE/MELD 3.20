@@ -1,0 +1,21 @@
+** pseudo-classes **
+
+- checkradio (plex again)
+- buttons
+- uniformise [correct viewimage -> view image]
+- viewlabel -> view label
+- menu
+- menubar
+- notebook
+- scale/progressbar/scrollbar/levelbar
+- buttonseparator -> button separator
+- .viewseparator -> .view separator
+- headerbar separator
+- menuitemseparator -> menuitem separator
+- switch
+- haderbar/toolbar/primary-toolbar
+- inline-toolbartoolbar -> toolbar toolbar
+- remove scrollbar slider from .osd category
+- titlebar/titlebutton
+- popovers
+

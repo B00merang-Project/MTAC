@@ -6,7 +6,7 @@ make_index() {
  echo "[Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=$1
-Comment=Windows XP themes for Linux OSes
+Comment=$1 theme for Linux OSes; based on the MTAC architecture
 Comment=Author : Christian Medel (Elbullazul)
 Version=rolling
 Encoding=UTF-8
@@ -15,6 +15,14 @@ Encoding=UTF-8
 GtkTheme=$1
 MetacityTheme=$1
 ButtonLayout=:minimize,maximize,close" >> "$2"
+}
+
+if_copy() {
+
+ if [ -d "$1" ]; then
+  cp -a  "$1" "$2"
+ fi
+
 }
 
 package_up() {
@@ -56,15 +64,12 @@ package_up() {
  cd ..
 
  mkdir "release/$fullname"
- cp -a "extras/cinnamon/$theme" "release/$fullname/cinnamon"
- cp -a "extras/gtk2/$theme" "release/$fullname/gtk-2.0"
- cp -a "extras/metacity/$theme" "release/$fullname/metacity-1"
- cp -a "extras/unity/$theme" "release/$fullname/unity"
 
- # if file exits copy xfwm theme
- if [ -d "extras/xfce/$theme" ]; then
-  cp -a  "extras/xfce/$theme" "release/$fullname/xfwm4"
- fi
+ if_copy "extras/cinnamon/$theme" "release/$fullname/cinnamon"
+ if_copy "extras/gtk2/$theme" "release/$fullname/gtk-2.0"
+ if_copy "extras/metacity/$theme" "release/$fullname/metacity-1"
+ if_copy "extras/unity/$theme" "release/$fullname/unity"
+ if_copy "extras/xfce/$theme" "release/$fullname/xfwm4"
 
  cp -a "compiler/Debug/3.0" "release/$fullname/gtk-3.0"
  cp -a "compiler/Debug/3.20" "release/$fullname/gtk-3.20"
