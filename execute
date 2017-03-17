@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Modular Theme Architecture and Compiler
+# Version: v0.5
+# Script by Christian Medel (elbullazul) <cmedelahumada@gmail.com>
+# March 16th, 2017
+# License: GPL v3
+# All source code used in this project is based on the Numix 3.10 theme codebase
+
+declare -a themes
+themes=( luna embedded zune royale royale-dark olive metal whistler slate plex 8 vista )
+
+# get flags
+declare -a flags # Declare a new array
+flags=("$@")     # Host all flags in the array
+
+clean() {
+   rm -rf compiler/Debug/3.0/*
+   rm -rf compiler/Debug/3.20/*
+   rm -rf release/*
+}
+
+swipe() {
+   rm -rf Debug/3.0/*
+   rm -rf Debug/3.20/*
+}
+
+compile() {
+    ./compile $1
+
+    # release theme
+    ./../scripts/release.sh $1
+
+    swipe
+}
+
+compress() {
+
+ echo -n "Compressing... "
+ ./../scripts/compress.sh
+
+}
+
+# We used getopts to manage flags, but DE override says no
+for f in ${!flags[@]}
+do
+ case ${flags[$f]} in
+
+  --clean)
+   clean
+   echo 'Done'
+   exit
+  ;;
+
+  luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler|8|vista)
+   theme="${flags[$f]}"
+  ;;
+
+  --all)
+    clean
+    printf 'Compile all themes\n\n'
+    cd compiler
+    
+    # capital first letter
+    for f in ${!themes[@]}
+    do
+
+     fullname=${themes[$f]}
+     name="$(tr '[:lower:]' '[:upper:]' <<< ${fullname:0:1})${fullname:1}"
+     
+     echo -n "$name..."
+     compile ${themes[$f]}
+     echo "[OK]"
+    done
+
+    compress
+
+    printf "\nCompiled Successfully\n"
+
+    exit
+  ;;
+
+  -h)
+    echo "More info coming soon"
+  ;;
+  *)
+    echo "Theme not supported"
+    exit
+  ;;
+ esac
+done
+
+# clean folders
+clean
+
+# execute compiler
+cd compiler
+compile $theme
+
+compress

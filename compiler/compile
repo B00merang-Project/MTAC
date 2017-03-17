@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Modular Theme Compiler
+# Version: v0.2 revision 2
+# Script by Christian Medel (elbullazul) <cmedelahumada@gmail.com>
+# March 16th, 2017
+# License: GPL v3
+
+theme="$1"
+
+write_file() {
+
+ tput setaf 3
+
+ if [ -a links/widgets/$1/$2/$theme.css ]; then
+  cat links/widgets/$1/$2/$theme.css >> Debug/$1/gtk-widgets.css
+ else
+  printf "\n[ERROR] File missing in $1/$2: $theme.css "
+ fi
+
+ tput setaf 7
+
+}
+
+conditions() {
+
+ # facilitate execution of write_file function
+ declare -a widgets
+ widgets=( wildcard button entry combo menumenubar notebook scrollprogress headerbarseparator spinbutton switch x-bar linkedbuttons titlebar )
+
+ write_file $2 ${widgets[$1]}
+
+}
+
+get_code() {
+ start=0
+ end=12
+ for (( c=$start; c<=$end; c++  ))
+ do
+  cat "links/common/$1/source/src_$c.css" >> "Debug/$1/gtk-widgets.css"
+  # Inject code here, depending on stuff
+  conditions $c "$1"
+  # depending on number, we'll use different stuff
+ done
+ cat "links/common/$1/source/src_13.css" >> "Debug/$1/gtk-widgets.css"
+}
+
+get_files() {
+
+ # include assets, assets CSS code, colors and apps
+ location="$PWD"
+
+ cd links/static/$1/$theme
+ cp -RL * "$location/Debug/$1"
+ cd "$location"
+
+}
+
+get_code "3.0"
+get_code "3.20" #3.20
+get_files '3.0'
+get_files '3.20' #3.20
