@@ -1,47 +1,93 @@
 #!/bin/bash
 
 # Modular Theme Architecture and Compiler
-# Version: v0.5
+# Version: v0.6
 # Script by Christian Medel (elbullazul) <cmedelahumada@gmail.com>
-# March 16th, 2017
+# March 21st, 2017
 # License: GPL v3
 # All source code used in this project is based on the Numix 3.10 theme codebase
 
 declare -a themes
 themes=( luna embedded zune royale royale-dark olive metal whistler slate plex 8 vista )
 
+# if true we push to git
+web_update=false
+
+# theme(s) to assemble
+declare -a todo
+
 # get flags
 declare -a flags # Declare a new array
 flags=("$@")     # Host all flags in the array
 
+# recurrent operations
 clean() {
    rm -rf compiler/Debug/3.0/*
    rm -rf compiler/Debug/3.20/*
    rm -rf release/*
 }
 
-swipe() {
+wipe() {
    rm -rf Debug/3.0/*
    rm -rf Debug/3.20/*
 }
 
-compile() {
-    ./compile $1
+push_web() {
+ if [ "$web_update" = true ]; then
+  ./../scripts/git_push.sh
+ fi
+}
 
-    # release theme
-    ./../scripts/release.sh $1
+publish() {
 
-    swipe
+ compress
+ push_web
+
 }
 
 compress() {
 
- echo -n "Compressing... "
+ echo -ne "\nCompressing... "
  ./../scripts/compress.sh
 
 }
 
-# We used getopts to manage flags, but DE override says no
+# execute compile script in compiler folder
+compile() {
+ ./compile $1
+
+ # release theme
+ ./../scripts/release.sh $1
+
+ wipe
+}
+
+# compiling method
+assemble() {
+
+ clean
+ echo -e 'Compiling...\n'
+ cd compiler
+
+ # capital first letter
+ for f in ${!todo[@]}
+ do
+
+  fullname=${todo[$f]}
+  name="$(tr '[:lower:]' '[:upper:]' <<< ${fullname:0:1})${fullname:1}"
+ 
+  echo -n "$name..."
+  compile ${todo[$f]}
+  echo "[OK]"
+ done
+
+ publish
+
+ echo -e "Compiled Successfully"
+
+}
+
+# process flags
 for f in ${!flags[@]}
 do
  case ${flags[$f]} in
@@ -53,48 +99,27 @@ do
   ;;
 
   luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler|8|vista)
-   theme="${flags[$f]}"
+   todo=("${flags[$f]}")
+  ;;
+
+  --git-push)
+   echo 'Web update mode is On'
+   web_update=true
   ;;
 
   --all)
-    clean
-    printf 'Compile all themes\n\n'
-    cd compiler
-    
-    # capital first letter
-    for f in ${!themes[@]}
-    do
-
-     fullname=${themes[$f]}
-     name="$(tr '[:lower:]' '[:upper:]' <<< ${fullname:0:1})${fullname:1}"
-     
-     echo -n "$name..."
-     compile ${themes[$f]}
-     echo "[OK]"
-    done
-
-    compress
-
-    printf "\nCompiled Successfully\n"
-
-    exit
+   todo=("${themes[@]}")
   ;;
 
   -h)
-    echo "More info coming soon"
+   echo "More info coming soon"
   ;;
   *)
-    echo "Theme not supported"
-    exit
+   echo "Theme/operator not supported"
+   exit
   ;;
  esac
 done
 
-# clean folders
-clean
-
-# execute compiler
-cd compiler
-compile $theme
-
-compress
+# execute assembly procedure
+assemble

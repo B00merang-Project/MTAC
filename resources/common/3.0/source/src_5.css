@@ -1,9 +1,0 @@
-
-/******************
- * pane separator *
- ******************/
-.pane-separator {
-    background-color: @theme_bg_color;
-    color: transparent;
-}
-
