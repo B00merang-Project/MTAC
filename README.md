@@ -18,7 +18,10 @@ You can also insert specific code to a particular theme (for example: the combob
 Finally, the compilation and assemlbly processes are flexible and can easily be edited. However, if you want to add a functionality or an extra operation OUTSIDE OF THE ASSEMBLY OR COMPILATION, please write it in a dedicated script and store it in 'scripts'. It will help keep the software clean and free of bugs.
 
 ### Why are you guys changing this script so much?
-Because we're simplifying the process.
+Because we're simplifying the process. At first this was supposed to be a private script so the developer made a quick and dirty script. Then it started getting serious and that's why we're cleaning and enhancing the process.
 
 ### Can I adapt other themes to this program?
-Short answer is yes, though you will have to adapt the source code according to the hierarchy of our code tree.
+Short answer is yes, though you will have to adapt the source code according to the hierarchy of our code tree and make a couple of tweaks to the scripts to add the theme to the compatibility list.
+
+### How do I use it?
+This script is not intended to be used as user-end installation or construction tool. Only developers should use this to maintain themes. If you want to develop a simple installation script use instead the [Transpack script](https://github.com/B00merang-Project/Shell-Scripts/blob/master/transpack.sh)
