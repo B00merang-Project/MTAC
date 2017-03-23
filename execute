@@ -99,7 +99,7 @@ do
   ;;
 
   luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler|8|vista)
-   todo=("${flags[$f]}")
+   todo=("$todo ${flags[$f]}")
   ;;
 
   --git-push)
