@@ -1,0 +1,16 @@
+/***********
+ * tooltip *
+ ***********/
+tooltip {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_tooltip_bg_color, 0.8);
+    border-radius: 8px;
+    background-color: @tooltip_bg_color;
+    background-image: none;
+    color: @tooltip_fg_color;
+}
+
+tooltip * {
+    background-color: transparent;
+}

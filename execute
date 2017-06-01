@@ -7,8 +7,11 @@
 # License: GPL v3
 # All source code used in this project is based on the Numix 3.10 theme codebase
 
+# for multiple themes at a time
+qty=0
+
 declare -a themes
-themes=( luna embedded zune royale royale-dark olive metal whistler slate plex 8 vista )
+themes=( luna embedded zune royale royale-dark olive metal whistler slate plex 8 vista aero glass green dark unity8 )
 
 # if true we push to git
 web_update=false
@@ -54,10 +57,15 @@ compress() {
 
 # execute compile script in compiler folder
 compile() {
- ./compile $1
+ ./compile $1 '3.0'
 
- # release theme
- ./../scripts/release.sh $1
+# case $1 in
+#  aero|glass|dark|green|unity8)
+#    ./../scripts/release.sh $1 3.0;;
+#  *)
+    ./compile $1 '3.20'
+    ./../scripts/release.sh $1 3.20 #;;
+ # esac
 
  wipe
 }
@@ -75,7 +83,7 @@ assemble() {
 
   fullname=${todo[$f]}
   name="$(tr '[:lower:]' '[:upper:]' <<< ${fullname:0:1})${fullname:1}"
- 
+
   echo -n "$name..."
   compile ${todo[$f]}
   echo "[OK]"
@@ -98,8 +106,9 @@ do
    exit
   ;;
 
-  luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler|8|vista)
-   todo=("${flags[$f]}")
+  luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler|8|vista|aero|glass|green|dark|unity8)
+   todo[$qty]="${flags[$f]}"
+   qty=$(($qty + 1))
   ;;
 
   --git-push)

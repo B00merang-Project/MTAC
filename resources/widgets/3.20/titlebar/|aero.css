@@ -1,0 +1,108 @@
+.titlebar {
+    border-radius: 7px 7px 0 0;
+    padding: 2px 5px;
+    background-image: url('assets/toolbar.png');
+    border-color: shade (@dark_bg_color, 1.5);
+    border-style: solid;
+    background-size: 100% 100%;
+    border-width: 1px 0 0 0;
+    border-radius: 7px 7px 0 0;
+    color: @dark_fg_color;
+    /*text-shadow: 0 -1px shade (@dark_bg_color, 0.7);*/
+    box-shadow: inset 0 1px shade (@dark_bg_color, 1.65);
+}
+
+.titlebar:backdrop {
+    background-image: url('assets/toolbar-inactive.png');
+    background-size: 100% 100%;
+}
+
+.titlebar .title {
+    font-weight: bold;
+}
+
+.titlebar .titlebutton {
+    background-color: transparent;
+    border-image-width: 0;
+    box-shadow: none;
+}
+
+.titlebar .titlebutton:hover {
+    border-image-width: 0;
+}
+
+.titlebar .titlebutton {
+    padding: 0px;
+    border-radius: 3px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border: 1px solid #8c8c8c;
+    color: white;
+    icon-shadow: 0 0 2px black;
+    box-shadow: inset 0 0 0px 1px rgba(255,255,255,0.5);
+    background-image: linear-gradient(to bottom, alpha(#d4d4d6, 0.25) ,alpha(#bababf, 0.25) 49%, alpha(#66666d, 0.25) 50%, alpha(#66666d, 0.25));
+}
+
+.titlebar .titlebutton.close {
+    background-clip: padding-box;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.titlebar .titlebutton.close:hover {
+    background-image: linear-gradient(to bottom, #fcc8bf, #faa99b 50%, #d22302 51%, #e6934e);
+}
+
+.titlebar .titlebutton.close:checked {
+    background-image: linear-gradient(to top, #ec6e44, #e76b41);
+}
+
+.titlebar .titlebutton:hover {
+    background-image: linear-gradient(to bottom, alpha(#a9d4f4, 0.65), alpha(#7cbfea, 0.65) 50%, alpha(#2e71a5, 0.65) 51%, alpha(#23c8e8, 0.65));
+}
+
+.titlebar .titlebutton:checked {
+    icon-shadow: none;
+    background-image: linear-gradient(to bottom, #89acd0 50%, #4973a1 51%);
+}
+
+decoration {
+    border-radius: 7px 7px 0 0;
+}
+
+/* alternative titlebar */
+.csd .titlebar:not(headerbar),
+.csd .default-decoration.titlebar {
+    border-radius: 7px 7px 0 0;
+    background-image: image(@titlebar_bg_color);
+    color: @titlebar_fg_color;
+}
+
+.csd .titlebar:not(headerbar):backdrop,
+.csd .default-decoration.titlebar:backdrop {
+    color: shade(@titlebar_fg_color, 1.15);
+}
+
+/* CSD alternative decoration */
+.csd headerbar,
+headerbar.default-decoration,
+.csd .titlebar:not(headerbar),
+.csd headerbar.default-decoration,
+.csd .default-decoration.titlebar {
+    min-height: 28px;
+    background-image: image(@titlebar_bg_color);
+    border: none;
+}
+
+.csd headerbar:backdrop,
+headerbar.default-decoration:backdrop,
+.csd .titlebar:not(headerbar):backdrop,
+.csd headerbar.default-decoration:backdrop,
+.csd .default-decoration.titlebar:backdrop {
+    border: none;
+}
+
+/* tooltip decoration */
+decoration.csd tooltip {
+    border-radius: 4px;
+}

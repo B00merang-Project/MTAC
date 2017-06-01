@@ -1,24 +1,25 @@
 #!/bin/bash
 
 # Modular Theme Compiler
-# Version: v0.3
+# Version: v0.4
 # Script by Christian Medel (elbullazul) <cmedelahumada@gmail.com>
-# March 16th, 2017
+# March 26th, 2017
 # License: GPL v3
 
 theme="$1"
+gtk="$2"
 
 write_file() {
 
- tput setaf 3
-
- if [ -a links/widgets/$1/$2/$theme.css ]; then
-  cat links/widgets/$1/$2/$theme.css >> Debug/$1/gtk-widgets.css
+ if [ -a "links/widgets/$1/$2/|$theme.css" ]; then
+  cat "links/widgets/$1/$2/|$theme.css" >> Debug/$1/gtk-widgets.css
+ elif [ -a "links/widgets/$1/$2/"*"|$theme"*.css ]; then
+  cat "links/widgets/$1/$2/"*"|$theme"*.css >> Debug/$1/gtk-widgets.css
  else
-  echo -e "[ERROR] File missing in $1/$2: $theme.css"
+  tput setaf 3
+  echo -ne "\n[ERROR] File missing in $1/$2  "
+  tput setaf 15
  fi
-
- tput setaf 7
 
 }
 
@@ -47,7 +48,5 @@ get_files() {
 
 }
 
-inject "3.0"
-inject "3.20" #3.20
-get_files '3.0'
-get_files '3.20' #3.20
+inject "$gtk"
+get_files "$gtk"

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 theme=$1
+gtk=$2
 
 make_index() {
  echo "[Desktop Entry]
@@ -59,6 +60,21 @@ package_up() {
   "Windows XP Vista")
     fullname="Windows Vista"
   ;;
+  "Windows XP Aero")
+    fullname="Windows Longhorn Aero"
+  ;;
+  "Windows XP Glass")
+    fullname="B00merang Glass"
+  ;;
+  "Windows XP Green")
+    fullname="B00merang Green"
+  ;;
+  "Windows XP Dark")
+    fullname="B00merang Dark"
+  ;;
+  "Windows XP Unity8")
+    fullname="Unity8"
+  ;;
  esac
 
  cd ..
@@ -72,11 +88,14 @@ package_up() {
  if_copy "extras/xfce/$theme" "release/$fullname/xfwm4"
 
  cp -a "compiler/Debug/3.0" "release/$fullname/gtk-3.0"
- cp -a "compiler/Debug/3.20" "release/$fullname/gtk-3.20"
 
- cd "release/$fullname/gtk-3.0"
- ln -s ../gtk-3.20 gtk-3.20
- cd ../../..
+ if [ "$1" == "3.20" ]; then
+  cp -a "compiler/Debug/3.20" "release/$fullname/gtk-3.20"
+
+  cd "release/$fullname/gtk-3.0"
+  ln -s ../gtk-3.20 gtk-3.20
+  cd ../../..
+ fi
 
  make_index "$fullname" "release/$fullname/index.theme"
 # zip -r "release/$fullname.zip" "release/$fullname" > /dev/null 2>&1
@@ -86,4 +105,4 @@ package_up() {
 
 }
 
-package_up
+package_up $gtk

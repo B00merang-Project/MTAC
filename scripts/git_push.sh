@@ -6,27 +6,30 @@
 cd ../release
 
 # check if folders ecist
-[ "$(ls -A .)" ] && echo empty=0 || empty=1
+# [ "$(ls -A .)" ] && echo empty=0 || empty=1
 
-if [ $empty -eq 1 ]; then
- echo "No release found. Re-compile and try again"
- exit
-fi
+# if [ $empty -eq 1 ]; then
+#  echo "No release found. Re-compile and try again"
+#  exit
+# fi
 
 for D in *; do
  if [ "$D" != "ZIP" ]; then
   case $D in
    *XP*)
-    cp -aRF "$D" "../scripts/Github/XP themes"
+    cp -aR "$D" "../scripts/Github/XP themes"
    ;;
    *Longhorn*)
-    cp -aRF "$D" "../scripts/Github/Longhorn Project"
+    cp -aR "$D" "../scripts/Github/Longhorn Project"
    ;;
    *Whistler*)
-    cp -aRf "$D" "../scripts/Github/W3"
+    cp -aR "$D/." "../scripts/Github/W3"
    ;;
-   *)
-    cp -aRf "$D" "../scripts/Github/Redmond Themes Repository"
+   *8*|*Vista*)
+    cp -aR "$D" "../scripts/Github/Redmond Themes Repository"
+   ;;
+   *B00merang*)
+    cp -aR "$D" "../scripts/Github/B00merang Repository"
    ;;
   esac
  fi

@@ -1,0 +1,74 @@
+/*********
+ * scale *
+ *********/
+scale {
+    min-height: 10px;
+    min-width: 10px;
+    padding: 12px;
+    border-width: 1px;
+    border-radius: 0px;
+}
+
+scale trough, scale fill {
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-radius: 0px;
+    background-color: shade(@theme_bg_color, 1.08);
+    background-image: none;
+}
+
+scale slider {
+    min-height: 19px;
+    min-width: 11px;
+    margin: -9px;
+    border-radius: 0px;
+    background: url('assets/slider-horiz.png') center center no-repeat;
+}
+
+scale.vertical slider {
+    min-height: 11px;
+    min-width: 19px;
+}
+
+scale slider:disabled {
+    border-radius: 0px;
+    background: url('assets/slider-horiz-insensitive.png') center center no-repeat;
+}
+
+/* vertical sliders */
+scale.vertical slider {
+    border-radius: 0px;
+    background: url('assets/slider-vert.png') center center no-repeat;
+}
+
+scale.vertical slider:disabled {
+    border-radius: 0px;
+    background: url('assets/slider-vert-insensitive.png') center center no-repeat;
+}
+
+scale slider.fine-tune:active,
+scale slider.fine-tune:active:hover,
+scale slider.fine-tune.horizontal:active,
+scale slider.fine-tune.horizontal:active:hover {
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+scale marks {
+    border-color: shade(@theme_bg_color, 0.8);
+}
+
+scale highlight {
+    border-color: @theme_selected_bg_color;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+scale trough:disabled,
+scale highlight:disabled {
+    border-color: shade(@theme_bg_color, 0.85);
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+}

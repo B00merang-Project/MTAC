@@ -1,0 +1,96 @@
+/*************
+ * separator *
+ *************/
+separator,
+.separator,
+.view.separator,
+.view separator,
+.sidebar.view separator,
+.sidebar.view.separator {
+    min-width: 1px;
+    min-height: 1px;
+    -gtk-icon-source: none;
+    border-style: none;
+    background-color: transparent;
+    background-image: image(shade(@theme_bg_color, 0.9));
+    background-size: 1px 1px;
+}
+
+/* button separator */
+button separator,
+button.separator {
+    min-width: 1px;
+    min-height: 1px;
+    background-image: image(shade(@theme_bg_color, 0.95));
+}
+
+button separator:disabled,
+button.separator:disabled {
+    background-image: image(shade(@theme_bg_color, 0.85));
+}
+
+/* x-bar separator */
+toolbar.separator,
+toolbar separator,
+toolbar.separator:disabled,
+toolbar separator:disabled,
+.primary-toolbar.separator,
+.primary-toolbar separator,
+.primary-toolbar.separator:disabled,
+.primary-toolbar separator:disabled {
+    background-image: image(shade(@toolbar_bg_color, 0.95));
+}
+
+headerbar separator,
+headerbar.separator,
+headerbar.titlebar separator,
+headerbar.titlebar.separator {
+    background-image: image(shade(@titlebar_bg_color, 0.7));
+}
+
+/* titlebutton separator */
+.titlebar separator.titlebutton {
+    padding: 0px;
+    background-image: image(shade(@titlebar_bg_color, 0.9));
+}
+
+/* x-bar button separator */
+toolbar button separator,
+toolbar button.separator,
+toolbar.primary-toolbar button separator,
+toolbar.primary-toolbar button.separator {
+    background-image: image(shade(@toolbar_bg_color, 0.95));
+}
+
+headerbar button separator,
+headerbar button.separator,
+headerbar.titlebar button separator,
+headerbar.titlebar button.separator {
+    background-image: image(shade(@titlebar_bg_color, 0.95));
+}
+
+/* x-bar button separator disabled */
+toolbar button separator:disabled,
+toolbar button.separator:disabled,
+toolbar.primary-toolbar button separator:disabled,
+toolbar.primary-toolbar button.separator:disabled {
+    background-image: image(shade(@toolbar_bg_color, 0.85));
+}
+
+headerbar button separator:disabled,
+headerbar button.separator:disabled,
+headerbar.titlebar button separator:disabled,
+headerbar.titlebar button.separator:disabled {
+    background-image: image(shade(@titlebar_bg_color, 0.85));
+}
+
+menuitem separator,
+menuitem.separator {
+    background-image: image(shade(@menu_bg_color, 0.9));
+}
+
+combobox separator,
+combobox.separator {
+    background-image: none;
+    background-color: transparent;
+}

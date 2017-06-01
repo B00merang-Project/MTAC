@@ -1,0 +1,11 @@
+.header-bar GtkSeparatorToolItem,
+.header-bar .separator,
+.header-bar .separator:insensitive,
+.titlebar GtkSeparatorToolItem,
+.titlebar .separator,
+.titlebar .separator:insensitive {
+    -GtkWidget-window-dragging: true;
+
+    border-color: shade(@titlebar_bg_color, 0.95);
+    color: shade(@titlebar_bg_color, 0.95);
+}

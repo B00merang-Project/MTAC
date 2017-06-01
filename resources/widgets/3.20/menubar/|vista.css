@@ -1,0 +1,17 @@
+/***********
+ * menubar *
+ ***********/
+menubar {
+    -GtkWidget-window-dragging: true;
+    background-color: @bg_color;
+    background-image: linear-gradient(to bottom,
+                      #FEFEFF,
+                      #E5EAF5 35%,
+                      #D4DBED 41%,
+                      #E1E6F6);
+    border-width: 0px 0px 1px 0px;
+    border-color: #b6bccc;
+    border-style: solid;
+
+    color: @theme_fg_color;
+}

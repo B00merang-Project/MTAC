@@ -1,0 +1,78 @@
+/*********
+ * scale *
+ *********/
+scale {
+    min-height: 10px;
+    min-width: 10px;
+    padding: 12px;
+    border-width: 1px;
+    border-radius: 2px;
+}
+
+scale slider {
+    min-height: 16px;
+    min-width: 16px;
+    margin: -8px;
+    border-radius: 8px;
+    background-color: shade(@theme_bg_color, 1.08);
+    background-image: none;
+    /* we will draw the border using box shadow for now */
+    box-shadow: inset 1px 0 shade(@theme_bg_color, 0.8),
+                inset 0 1px shade(@theme_bg_color, 0.8),
+                inset -1px 0 shade(@theme_bg_color, 0.8),
+                inset 0 -1px shade(@theme_bg_color, 0.8);
+}
+
+scale slider:hover {
+    box-shadow: inset 1px 0 shade(@theme_bg_color, 0.7),
+                inset 0 1px shade(@theme_bg_color, 0.7),
+                inset -1px 0 shade(@theme_bg_color, 0.7),
+                inset 0 -1px shade(@theme_bg_color, 0.7);
+}
+
+scale slider:disabled {
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+    box-shadow: inset 1px 0 shade(@theme_bg_color, 0.85),
+                inset 0 1px shade(@theme_bg_color, 0.85),
+                inset -1px 0 shade(@theme_bg_color, 0.85),
+                inset 0 -1px shade(@theme_bg_color, 0.85);
+}
+
+scale slider.fine-tune:active,
+scale slider.fine-tune:active:hover,
+scale slider.fine-tune.horizontal:active,
+scale slider.fine-tune.horizontal:active:hover {
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+}
+
+scale marks {
+    border-color: shade(@theme_bg_color, 0.8);
+}
+
+scale trough {
+    margin: 7px 0;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-radius: 2px;
+    background-color: shade(@theme_bg_color, 1.08);
+    background-image: none;
+}
+
+scale trough.vertical {
+    margin: 0 7px;
+}
+
+scale highlight {
+    border-color: @theme_selected_bg_color;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+scale trough:disabled,
+scale highlight:disabled {
+    border-color: shade(@theme_bg_color, 0.85);
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+}
