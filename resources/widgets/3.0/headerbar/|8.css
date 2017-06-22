@@ -1,0 +1,85 @@
+/**************
+ * header-bar *
+ **************/
+.header-bar {
+    padding: 4px;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    background-color: @theme_bg_color;
+    background-image: none;
+    color: @theme_fg_color;
+}
+
+.header-bar .button.text-button {
+    padding: 4px;
+}
+
+.header-bar .button.image-button {
+    padding: 6px;
+}
+
+.header-bar .title {
+    font: bold;
+    padding: 0 12px;
+}
+
+.header-bar .subtitle {
+    font: smaller;
+    padding: 0 12px;
+}
+
+.header-bar GtkComboBox,
+.header-bar .button {
+    border-color: shade(@theme_bg_color, 0.8);
+    background-color: shade(@theme_bg_color, 1.08);
+    background-image: linear-gradient(to bottom, @theme_bg_color, shade(@theme_bg_color, 0.90));
+    color: @theme_fg_color;
+}
+
+.header-bar .button:hover {
+    border-color: shade(@theme_selected_bg_color, 0.7);
+    background-color: shade(@theme_bg_color, 1.10);
+    background-image: linear-gradient(to bottom, alpha(@theme_selected_bg_color, 0.3), alpha(@theme_selected_bg_color, 0.6));
+}
+
+.header-bar .button:active,
+.header-bar .button:checked {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+    background-color: shade(@theme_bg_color, 0.95);
+    background-image: linear-gradient(to bottom, alpha(@theme_selected_bg_color, 0.3), alpha(@theme_selected_bg_color, 0.6));
+}
+
+.header-bar .button:active:hover {
+    border-color: shade(@theme_bg_color, 0.7);
+}
+
+.header-bar .button:focus,
+.header-bar .button:hover:focus,
+.header-bar .button:active:focus,
+.header-bar .button:active:hover:focus {
+    border-color: shade(@theme_bg_color, 0.7);
+}
+
+.header-bar .button:insensitive {
+    border-color: shade(@theme_bg_color, 0.85);
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+}
+
+.header-bar .button:active *:insensitive {
+    border-color: shade(@theme_bg_color, 0.75);
+    background-color: shade(@theme_bg_color, 0.80);
+    background-image: none;
+}
+
+.header-bar .entry {
+    border-width: 1px;
+    border-color: shade(@bg_color, 0.6);
+}
+
+.header-bar .entry:active,
+.header-bar .entry:focus {
+    border-width: 1px;
+    border-color: shade(@selected_bg_color, 0.6);
+}

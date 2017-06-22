@@ -1,0 +1,89 @@
+/*******
+ * CSD *
+ *******/
+.titlebar {
+    border-radius: 2px 2px 0 0;
+    background-image: none;
+    background-color: @titlebar_bg_color;
+    color: mix(@titlebar_fg_color, @titlebar_bg_color, 0.1);
+    text-shadow: none;
+}
+
+.titlebar:backdrop {
+    background-image: none;
+    background-color: @titlebar_bg_color;
+    color: mix(@titlebar_fg_color, @titlebar_bg_color, 0.4);
+    text-shadow: none;
+}
+
+.titlebar .title {
+    font-weight: bold;
+}
+
+.titlebar .titlebutton {
+    padding: 4px;
+    border-style: none;
+    background: none;
+    color: mix(@titlebar_fg_color, @titlebar_bg_color, 0.1);
+    icon-shadow: none;
+}
+
+.titlebar .titlebutton:hover,
+.titlebar .titlebutton:hover:focus {
+    background: none;
+    color: @theme_selected_bg_color;
+}
+
+.titlebar .titlebutton:checked,
+.titlebar .titlebutton:checked:hover {
+    background: none;
+    color: shade(@theme_selected_bg_color, 0.9);
+    box-shadow: none;
+}
+
+.titlebar .titlebutton:backdrop {
+    background-image: none;
+    color: mix(@titlebar_fg_color, @titlebar_bg_color, 0.4);
+    icon-shadow: none;
+}
+
+decoration {
+    border-radius: 2px 2px 0 0;
+}
+
+/* alternative titlebar */
+.csd .titlebar:not(headerbar),
+.csd .default-decoration.titlebar {
+    border-radius: 2px 2px 0 0;
+    background-image: image(@titlebar_bg_color);
+    color: @titlebar_fg_color;
+}
+
+.csd .titlebar:not(headerbar):backdrop,
+.csd .default-decoration.titlebar:backdrop {
+    color: shade(@titlebar_fg_color, 1.15);
+}
+
+/* CSD alternative decoration */
+.csd headerbar,
+headerbar.default-decoration,
+.csd .titlebar:not(headerbar),
+.csd headerbar.default-decoration,
+.csd .default-decoration.titlebar {
+    min-height: 32px;
+    border-radius: 2px 2px 0 0;
+    border: none;
+}
+
+.csd headerbar:backdrop,
+headerbar.default-decoration:backdrop,
+.csd .titlebar:not(headerbar):backdrop,
+.csd headerbar.default-decoration:backdrop,
+.csd .default-decoration.titlebar:backdrop {
+    border: none;
+}
+
+/* tooltip decoration */
+decoration.csd tooltip {
+    border-radius: 8px;
+}

@@ -1,0 +1,78 @@
+/**********
+ * button *
+ **********/
+button {
+    padding: 5px 6px;
+    background-image: linear-gradient(to bottom, #fdfdfd,
+                                   #fafafa 11%,
+                                   #ededed 22%,
+                                   #e4e4e4 33%,
+                                   #dedede 44%,
+                                   #d7d7d7 55%,
+                                   #c9c9c9 66%,
+                                   #d2d2d2 77%,
+                                   #dddddd 88%,
+                                   #d0d1d1);
+    color: @fg_color;
+    border: 1px solid #58616d;
+    box-shadow: inset 0 0 2px 1px #c2c3c5;
+    text-shadow: 0 1px alpha (shade (@button_bg_color, 1.25), 0.4);
+    border-radius: 2px;
+    transition: all 250ms ease-in;
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom, #fff, #d4dde5 60%, #86c9eb 78%, #acdaf1);
+    border: 1px solid #12558a;
+    border: 1px solid #14588d;  
+    box-shadow: inset 0 0 2px 1px #8db1c8,
+                inset 0 0 3px 2px #cef1fd;
+}
+
+button.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+}
+
+button:disabled {
+    background-color: mix (#ebebeb, @bg_color, 0.5);
+    box-shadow: inset 0 0 5px 3px alpha(black, 0.5);
+}
+
+button:checked,
+button:active {
+    background-image: linear-gradient(to bottom, #fff, #d4dde5 66%, #86c9eb 72%, #acdaf1);
+    border: 1px solid #14588d;  
+    box-shadow: inset 0 0 5px 5px #c2e0ee;
+}
+
+button:active:hover {
+    background-image: linear-gradient(to bottom,
+                                     shade(#e5f4fc, 1.05),
+                                     shade(#c4e5f6, 1.00) 50%,
+                                     shade(#96dbff, 1.00) 51%,
+                                     shade(#6db6dd, 1.05));
+}
+
+button:active:disabled {
+    background-image: linear-gradient(to bottom,
+                                     #e3e3e3,
+                                     #f3f3f3);
+}
+
+button:focus {
+    background-image: linear-gradient(to bottom, #ffffff,
+                    #fbfbfd 11%,
+                    #efeff5 22%,
+                    #eeeef4 33%,
+                    #e4e4ed 44%,
+                    #deddea 55%,
+                    #dcdce8 66%,
+                    #bebfd6 77%,
+                    #bebfd6 88%,
+                    #dbdbe8);
+    border-color: #070961;
+    box-shadow: inset 0 0 2px 1px #7778a9;
+}

@@ -1,0 +1,75 @@
+/**********
+ * button *
+ **********/
+.button {
+    padding: 5px 6px;
+    background-image: linear-gradient(to bottom, shade (#ebebeb, 1.00) 50%,
+                                     shade (#dddddd, 1.00) 51%,
+                                     shade (#cfcfcf, 1.05));
+    color: @theme_fg_color;
+    border: 1px solid #7e7e7e;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px white;
+}
+
+.button:hover {
+    border-color: #4f8bb8;
+    background-image: linear gradient,to bottom,
+                                     shade (#eaf6fd, 1.05),
+                                     shade (#d9f0fc, 1.00) 50%,
+                                     shade (#bee6fd, 1.00) 51%,
+                                     shade (#a7d9f5, 1.05));
+}
+
+.button:active,
+.button:focus:checked {
+    border-color: #4c4c4c;
+    background-image: linear-fradient, to bottom,
+                      shade (#efefef, 1.0),
+                      shade (#efefef, 1.0));
+    box-shadow: inset 0 0 0 1px alpha(#6cb9e0, 0.7),
+                inset 0 0 3px 2px alpha(black, 0.35);
+}
+
+.button:checked {
+    box-shadow: inset 0 0 3px 2px alpha(black, 0.35);
+}
+
+.button:focus/*,
+.button:active:focus,
+.button:active:hover:focus*/ {
+    border-color: #4f8cb8;
+    box-shadow: inset 0 0 2px 1px #52dfff;
+}
+
+.button:insensitive,
+.button:active *:insensitive {
+    background-image: linear gradient, to bottom,
+                      shade (#efefef, 1.0),
+                      shade (#efefef, 1.0));
+}
+
+/* default button 
+.button.default {
+    box-shadow: inset 0 0 0 1px shade(@theme_selected_bg_color, 0.6);
+    border-color: shade(@theme_selected_bg_color, 0.6);
+    background-color: shade(@theme_bg_color, 1.0);
+    color: @theme_fg_color;
+}
+
+.button.default:hover {
+    border-color: shade(@theme_selected_bg_color, 0.6);
+    background-color: shade(@theme_selected_bg_color, 1.02);
+}
+
+.button.default:active {
+    border-color: shade(@theme_selected_bg_color, 0.6);
+    background-color: shade(@theme_selected_bg_color, 0.95);
+}
+
+.button.default:active:hover {
+    border-color: shade(@theme_selected_bg_color, 0.6);
+    background-color: shade(@theme_selected_bg_color, 0.97);
+} */
+
+

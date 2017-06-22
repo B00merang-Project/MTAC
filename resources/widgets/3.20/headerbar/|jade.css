@@ -1,0 +1,20 @@
+/*************
+ * headerbar *
+ *************/
+.header-bar {
+    -GtkWidget-window-dragging: true;
+	background-image: url('assets/toolbar.png');
+	background-size: cover;
+	background-color: transparent;
+    border-bottom-color: #b6bccc;
+    border-style: solid;
+    border-width: 0;
+    border-radius: 0;
+    color: black;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.header-bar:backdrop {
+	background-image: url('assets/toolbar-inactive.png');
+}

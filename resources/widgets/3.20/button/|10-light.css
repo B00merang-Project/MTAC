@@ -1,0 +1,70 @@
+/**********
+ * button *
+ **********/
+button {
+    padding: 3px 4px;
+    border-width: 1px;
+    border-radius: 0px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    background-color: shade(@theme_bg_color, 1.08);
+    background-image: none;
+    color: @theme_fg_color;
+}
+
+button:hover {
+    border-color: shade(@theme_selected_bg_color, 0.7);
+    background-color: shade(@theme_selected_bg_color, 1.02);
+    background-image: none;
+}
+
+button:active,
+button:checked {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+    background-color: shade(@theme_selected_bg_color, 0.95);
+    background-image: none;
+}
+
+button:active:hover {
+    border-color: shade(@theme_selected_bg_color, 0.7);
+}
+
+button:focus,
+button:hover:focus,
+button:active:focus,
+button:active:hover:focus {
+    border-color: shade(@theme_selected_bg_color, 0.7);
+}
+
+button:disabled {
+    border-color: shade(@theme_bg_color, 0.85);
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+}
+
+button:active *:disabled {
+    border-color: shade(@theme_bg_color, 0.75);
+    background-color: shade(@theme_bg_color, 0.80);
+    background-image: none;
+}
+
+/* Flat button */
+button.flat {
+    background-color: transparent;
+    border: 2px solid transparent;
+    background-image: none;
+    box-shadow: none;
+}
+
+button.flat:hover {
+    border-width: 2px;
+    border-color: shade(@theme_bg_color, 0.9);
+}
+
+button.flat:active,
+button.flat:checked,
+button.flat:active:focus,
+button.flat:checked:focus {
+    border-width: 2px;
+    border-color: shade(@theme_bg_color, 0.8);
+}

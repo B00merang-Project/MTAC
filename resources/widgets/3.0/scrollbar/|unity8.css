@@ -1,0 +1,68 @@
+/*************
+ * scrollbar *
+ *************/
+.scrollbar {
+    border-width: 1px;
+    border-style: solid;
+    padding: 0;
+}
+
+.scrollbars-junction,
+.scrollbar.trough {
+    border-width: 0;
+    border-radius: 0;
+    background-color: @theme_bg_color;
+    background-image: none;
+}
+
+.scrollbar.button,
+.scrollbar.button:active,
+.scrollbar.button:active:hover {
+    border-width: 0;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: none;
+    color: shade(@theme_bg_color, 0.6);
+}
+
+.scrollbar.slider {
+    border: none;
+    border-radius: 3px;
+    background-color: mix(@theme_bg_color, @theme_fg_color, 0.21);
+}
+
+.scrollbar.slider:hover,
+.scrollbar.slider.vertical:hover {
+    background-color: mix(@theme_bg_color, @theme_fg_color, 0.31);
+}
+
+.scrollbar.slider:active,
+.scrollbar.slider.vertical:active {
+    background-color: @theme_selected_bg_color;
+}
+
+.scrollbar.slider.fine-tune:prelight:active {
+      border-width: 2px;
+      border-color: transparent;
+      transition: all 150ms ease-in;
+}
+
+/* overlay scrollbar */
+OsThumb {
+    color: shade(@theme_bg_color, 0.7);
+}
+
+OsThumb:selected,
+OsScrollbar:selected {
+    background-color: @theme_selected_bg_color;
+}
+
+OsThumb:active,
+OsScrollbar:active {
+    background-color: @theme_selected_bg_color;
+}
+
+OsThumb:insensitive,
+OsScrollbar:insensitive {
+    background-color: shade(@theme_bg_color, 0.9);
+}

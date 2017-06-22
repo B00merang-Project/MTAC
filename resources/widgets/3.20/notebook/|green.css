@@ -1,0 +1,138 @@
+/************
+ * notebook *
+ ************/
+notebook {
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_base_color, 0.7);
+    border-radius: 0;
+    background-color: @theme_base_color;
+    background-image: none;
+    background-clip: border-box;
+
+    -GtkNotebook-initial-gap: 0;
+    -GtkNotebook-has-tab-gap: false;
+}
+
+notebook > frame {
+    border-width: 1px;
+}
+
+notebook > header {
+    border-width: 0;
+    background-color: shade(@theme_base_color, 0.85);
+}
+
+notebook > header > frame {
+    border-color: shade(@theme_base_color, 0.75);
+}
+
+notebook > header > frame.top {
+    border-width: 1px 1px 0 1px;
+}
+
+notebook > header > frame.right {
+    border-width: 1px 1px 1px 0;
+}
+
+notebook > header > frame.bottom {
+    border-width: 0 1px 1px 1px;
+}
+
+notebook > header > frame.left {
+    border-width: 1px 0 1px 1px;
+}
+
+notebook viewport {
+    border-width: 0;
+    background-color: @theme_base_color;
+    color: @theme_text_color;
+}
+
+notebook tab {
+    padding: 4px;
+    border-style: none;
+    background-color: shade(@theme_base_color, 0.85);
+    background-image: none;
+}
+
+notebook tab:hover {
+    background-color: shade(@theme_base_color, 0.95);
+    background-image: none;
+}
+
+notebook tab:checked {
+    background-color: shade(@theme_base_color, 0.85);
+    background-image: none;
+}
+
+notebook header.top tab {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+notebook header.top tab:checked {
+    box-shadow:inset 0 -2px @theme_selected_bg_color;
+}
+
+notebook header.right tab {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+notebook header.right tab:checked {
+    box-shadow:inset 2px 0 @theme_selected_bg_color;
+}
+
+notebook header.bottom tab {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+notebook header.bottom tab:checked {
+    box-shadow:inset 0 2px @theme_selected_bg_color;
+}
+
+notebook header.left tab {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+notebook header.left tab:checked {
+    box-shadow:inset -2px 0 @theme_selected_bg_color;
+}
+
+notebook tab label {
+    color: mix(@theme_text_color, @theme_base_color, 0.3);
+}
+
+notebook .checked-page,
+notebook tab .checked-page label {
+    color: @theme_text_color;
+}
+
+/* close button styling */
+notebook tab button,
+notebook tab button:checked,
+notebook tab button:hover {
+    padding: 1px;
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: transparent;
+    background-image: none;
+    background-color: transparent;
+    color: mix(@theme_text_color, @theme_base_color, 0.5);
+}
+
+notebook tab button:hover {
+    color: @theme_text_color;
+    border-color: shade(@theme_base_color, 0.8);
+}
+
+notebook tab button:checked,
+notebook tab button:checked:hover {
+    border-color: shade(@theme_base_color, 0.7);
+    background-color: shade(@theme_base_color, 0.95);
+}

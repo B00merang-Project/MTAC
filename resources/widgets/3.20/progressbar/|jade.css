@@ -1,0 +1,106 @@
+/*****************
+ * Progress bars *
+ *****************/
+progressbar {
+  font-size: smaller;
+  color: rgba(0, 0, 0, 0.4); }
+  progressbar.horizontal trough,
+  progressbar.horizontal progress {
+    min-height: 16px; }
+  progressbar.vertical trough,
+  progressbar.vertical progress {
+    min-width: 16px; }
+  progressbar.horizontal progress {
+    margin: 0; }
+  progressbar.vertical progress {
+    margin: 0; }
+  progressbar trough {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    box-shadow: inset 0 0 1px 2px #f1f3f1;
+    border-color: mix(@theme_bg_color, @theme_fg_color, 0.1);
+    background-color: @theme_bg_color; }
+  progressbar progress {
+    border-radius: 1px;
+    border: 1px solid #2daf53;
+    border-left-width: 0;
+    border-right-width: 0;
+    background-image: linear-gradient(to top, #b9f0ce,
+                                      #b9f0ce 5%,
+                                      #57c253 20%,
+                                      #57c253 30%,
+                                      #4bc93b 40%,
+                                      #58cc52 50%,
+                                      #49ca3a 60%,
+                                      #47d433 70%,
+                                      #52e040 80%,
+                                      #9cffb6 90%,
+                                      #9cffb6);
+    background-color: @success_color;
+    box-shadow: none; }
+  progressbar.vertical progress {
+    border-bottom-width: 0;
+    border-top-width: 0;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    background-image: linear-gradient(to left, #b9f0ce,
+                                      #b9f0ce 5%,
+                                      #57c253 20%,
+                                      #57c253 30%,
+                                      #4bc93b 40%,
+                                      #58cc52 50%,
+                                      #49ca3a 60%,
+                                      #47d433 70%,
+                                      #52e040 80%,
+                                      #9cffb6 90%,
+                                      #9cffb6); }
+                                      
+/* levelbar */
+levelbar trough {
+    padding: 1px;
+    border-radius: 0px;
+    background-color: shade(@theme_bg_color, 0.85);
+    border: 1px solid shade(@theme_bg_color, 0.5);
+}
+
+levelbar block {
+    border-width: 1px;
+    border-style: solid;
+    padding: 1px;
+    border-radius: 0px;
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: @theme_selected_bg_color;
+}
+
+levelbar. block.horizontal {
+    margin: 0 1px;
+}
+
+levelbar. block.vertical {
+    margin: 1px 0;
+}
+
+levelbar block.high {
+    border-color: shade(@success_color, 0.85);
+    background-image: linear-gradient(to bottom,
+                                      shade(@success_color, 1.2),
+                                      @success_color 75%,
+                                      shade(@success_color, 0.95)
+                                      );
+}
+
+levelbar block.low {
+    border-color: shade(@warning_color, 0.80);
+    background-image: linear-gradient(to bottom,
+                                      shade(@warning_color, 1.3),
+                                      @warning_color 75%,
+                                      shade(@warning_color, 0.9)
+                                      );
+}
+
+levelbar block.empty {
+    border-color: alpha(@theme_fg_color, 0.1);
+    background-color: transparent;
+    background-image: none;
+}

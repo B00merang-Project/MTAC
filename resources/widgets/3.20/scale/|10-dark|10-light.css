@@ -1,0 +1,74 @@
+/*********
+ * scale *
+ *********/
+scale {
+    padding: 0;
+    border-width: 1px;
+    border-radius: 0px;
+}
+
+scale slider {
+    border-radius: 0px;
+    min-height: 21px;
+    min-width: 15px;
+    margin: -9px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url('assets/slider-horiz.png');
+}
+
+scale slider {
+    border-radius: 0px;
+    background-image: url('assets/slider-horiz.png');
+}
+
+scale slider:hover {
+    background-image: url('assets/slider-horiz-hover.png');
+}
+
+scale slider:disabled {
+    background-image: url('assets/slider-horiz-insensitive.png');
+}
+
+/* vertical sliders */
+scale.vertical slider {
+    min-width: 19px;
+    min-height: 11px;   
+    margin: -8px;
+}
+
+scale.vertical slider {
+    border-radius: 0px;
+    background-image: url('assets/slider-vert.png');
+}
+
+scale.vertical slider:hover {
+    background-image: url('assets/slider-vert-hover.png');
+}
+
+scale.vertical slider:disabled {
+    background-image: url('assets/slider-vert-insensitive.png');
+}
+
+scale marks {
+    border-color: shade(@theme_bg_color, 0.8);
+}
+
+scale trough {
+    margin: 9px 6px;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-radius: 0px;
+    background-color: shade(@theme_bg_color, 0.8);
+    background-image: none;
+    border-image: none;
+}
+
+scale trough.vertical {
+    margin: 6px 9px;
+}
+
+scale trough:disabled {
+    border-color: shade(@theme_bg_color, 0.85);
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+}

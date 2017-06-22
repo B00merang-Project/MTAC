@@ -1,0 +1,88 @@
+/*************
+ * scrollbar *
+ *************/
+scrollbar {
+    border-width: 0;
+    border-style: solid;
+    padding: 0;
+    background-color: shade(@theme_bg_color, 0.95);
+    background-image: none;
+    border-image: none;
+}
+
+scrollbar trough {
+    border: none;
+    background: transparent;
+}
+
+scrollbar button,
+scrollbar button:hover,
+scrollbar button:active,
+scrollbar button:active:hover,
+scrollbar button:disabled {
+    min-height: 14px;
+    min-width: 0px;
+    padding: none;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: shade(@theme_bg_color, 0.6);
+}
+
+scrollbar.horizontal button {
+    min-height: 0;
+    min-width: 14px;
+}
+
+scrollbar slider {
+    min-height: 45px;
+    min-width: 12px;
+    border: 1px solid #c5c5bd;
+    border-radius: 0;
+    background: url("scrollbars/handle-vert.png") no-repeat center center;
+    background-color: @theme_base_color;
+}
+
+scrollbar.horizontal slider {
+    min-height: 12px;
+    min-width: 45px;
+    background: url("scrollbars/handle.png") no-repeat center center;
+}
+
+scrollbar slider:hover,
+scrollbar slider.vertical:hover {
+    background-color: shade(@theme_base_color, 0.95);
+}
+
+scrollbar slider:active,
+scrollbar slider.vertical:active {
+    background-color: shade(@theme_base_color, 0.95);
+}
+
+scrollbar slider.fine-tune:prelight:active {
+    border-width: 2px;
+    border-color: transparent;
+}
+
+scrollbar.vertical button.down {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
+scrollbar.vertical button.up {
+    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+
+scrollbar.horizontal button.down {
+    -gtk-icon-source: -gtk-icontheme("pan-right-symbolic");
+}
+
+scrollbar.horizontal button.up {
+    -gtk-icon-source: -gtk-icontheme("pan-left-symbolic");
+}
+
+
+treeview ~ scrollbar.vertical {
+  border-top: 1px solid @borders;
+  margin-top: -1px;
+}
+

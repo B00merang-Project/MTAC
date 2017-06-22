@@ -1,0 +1,39 @@
+/***********
+ * toolbar *
+ ***********/
+toolbar {
+    background-image: linear-gradient(to bottom,
+                                     shade(#fefeff, 1.05),
+                                     shade(#e5eaf5, 1.00) 40%,
+                                     shade(#d2d9ec, 1.00) 41%,
+                                     shade(#e2e7f7, 1.00) 89%,
+                                     shade(#d5dbeb, 1.00) 90%,
+                                     shade(#b6bccc, 1.05));
+    padding: 5px;
+    color: @fg_color;
+    text-shadow: none;
+	border-radius: 2px 2px 0 0;
+	border: 1px solid alpha(gray, 0.8);
+}
+
+toolbar button {
+    padding: 2px;
+}
+
+toolbar button.text-button {
+    padding: 2px 4px;
+}
+
+toolbar button.image-button {
+    padding: 4px 3px 3px 4px;
+}
+
+toolbar:disabled {
+    background-color: shade(@toolbar_bg_color, 0.9);
+    color: mix(@toolbar_fg_color, @toolbar_bg_color, 0.5);
+}
+
+/* menubar toolbars */
+toolbar menubar {
+    -GtkToolbar-button-relief: normal;
+}

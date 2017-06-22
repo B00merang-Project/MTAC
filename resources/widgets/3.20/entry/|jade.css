@@ -1,0 +1,41 @@
+/*********
+ * entry *
+ *********/
+entry {
+    -GtkWidget-focus-line-width: 0;
+    background-color: @base_color;
+    background-image: linear-gradient(to bottom,
+                                     shade(@base_color, 0.96),
+                                     @base_color);
+    padding: 5px 7px;
+    color: @text_color;
+    border: 1px solid #58616d;
+}
+
+entry:selected,
+entry selection,
+entry:selected:focus,
+entry selection:focus {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+entry:disabled {
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, transparent);
+    color: mix(@text_color, @base_color, 0.4);
+}
+
+entry.readonly {
+    background-color: #f5f5f5;
+    background-image: none;
+}
+
+entry progress {
+    background-image: linear-gradient(to bottom,
+                                     shade (@selected_bg_color, 0.8),
+                                     shade (@selected_bg_color, 0.9) 10%,
+                                     shade (@selected_bg_color, 1.1));
+    border-width: 0;
+    color: @selected_fg_color;
+}

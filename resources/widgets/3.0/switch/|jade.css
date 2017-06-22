@@ -1,0 +1,51 @@
+GtkSwitch {
+    padding: 0;
+    border-radius: 2px;
+    font-size: 0;
+}
+
+GtkSwitch.trough {
+    border-radius: 3px;
+    color: @fg_color;
+    text-shadow: none;
+    border-radius: 2px;
+    background-image: linear-gradient(to bottom,
+                                      #cecece,
+                                      #e8e8e8);
+}
+
+GtkSwitch.trough:active {
+    text-shadow: none;
+    color: @selected_fg_color;
+    background-image: linear-gradient(to bottom,
+                                      shade(@selected_bg_color, 0.93),
+                                      shade(@selected_bg_color, 0.99));
+}
+
+GtkSwitch.trough:insensitive {
+    color: shade (@bg_color, 0.6);
+    text-shadow: 0 1px alpha(shade(@bg_color, 1.25), 0.5);
+    background-image: linear-gradient(to bottom,
+                                      shade(@bg_color, 0.93),
+                                      shade(@bg_color, 0.99));
+}
+
+GtkSwitch.slider {
+    padding: 1px;
+    border-radius: 6px;
+    border-style: solid;
+    color: @fg_color;
+    border: 1px solid #58616d;
+    box-shadow: inset 0 0 2px 1px #c2c3c5;
+    text-shadow: 0 1px alpha (shade (@button_bg_color, 1.25), 0.4);
+    background-image: linear-gradient(to bottom, #fdfdfd,
+                                      #fafafa 11%,
+                                      #ededed 22%,
+                                      #e4e4e4 33%,
+                                      #dedede 44%,
+                                      #d7d7d7 55%,
+                                      #c9c9c9 66%,
+                                      #d2d2d2 77%,
+                                      #dddddd 88%,
+                                      #d0d1d1);
+}

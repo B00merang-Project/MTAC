@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Modular Theme Compiler
+# Version: v0.4
+# Script by Christian Medel (elbullazul) <cmedelahumada@gmail.com>
+# March 26th, 2017
+# License: GPL v3
+
+theme="$1"
+gtk="$2"
+
+write_file() {
+
+ if [ -a "links/widgets/$1/$2/|$theme.css" ]; then
+  cat "links/widgets/$1/$2/|$theme.css" >> Debug/$1/gtk-widgets.css
+ elif [ -a "links/widgets/$1/$2/"*"|$theme"*.css ]; then
+  cat "links/widgets/$1/$2/"*"|$theme"*.css >> Debug/$1/gtk-widgets.css
+ elif [ -a "links/widgets/$1/$2/@all.css" ]; then
+  cat "links/widgets/$1/$2/@all.css" >> Debug/$1/gtk-widgets.css
+ else
+  tput setaf 3
+  echo -ne "\n[ERROR] File missing in $1/$2  "
+  tput setaf 15
+ fi
+
+}
+
+inject() {
+ source="links/common/$1/tree.css"
+
+ while IFS='' read -r line || [[ -n "$line" ]]; do
+  if [[ $line == *! ]]; then
+   widget=${line#'!---'}
+   widget=${widget%'---!'}
+   write_file $1 $widget
+  else
+   echo "$line" >> "Debug/$1/gtk-widgets.css"
+  fi
+ done < "$source"
+}
+
+get_files() {
+
+ # include assets, assets CSS code, colors and apps
+ location="$PWD"
+
+ cd links/static/$1/$theme
+ cp -RL * "$location/Debug/$1"
+ cd "$location"
+
+}
+
+inject "$gtk"
+get_files "$gtk"

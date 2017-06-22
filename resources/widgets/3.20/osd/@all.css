@@ -1,0 +1,275 @@
+/*******
+ * osd *
+ *******/
+.background.osd {
+    color: @osd_fg;
+    background-color: @osd_bg;
+}
+
+overlay.osd {
+    background-color: transparent;
+}
+
+.osd frame {
+    background-clip: border-box;
+    background-origin: border-box;
+}
+
+.app-notification border {
+    border: none;
+}
+
+.osd button {
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@osd_bg, 0.8);
+    border-radius: 2px;
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+    color: @osd_fg;
+}
+
+.osd button:hover {
+    border-color: shade(@osd_bg, 0.7);
+    background-color: shade(@osd_bg, 1.10);
+    background-image: none;
+}
+
+.osd button:active,
+.osd menu button:active {
+    border-color: shade(@osd_bg, 0.8);
+    background-color: shade(@osd_bg, 0.95);
+    background-image: none;
+}
+
+.osd button:active:hover,
+.osd menu button:active:hover {
+    border-color: shade(@osd_bg, 0.7);
+}
+
+.osd button:disabled {
+    border-color: shade(@osd_bg, 0.85);
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+}
+
+.osd button:active *:disabled {
+    background-color: shade(@osd_bg, 0.80);
+    background-image: none;
+}
+
+.osd toolbar {
+    -GtkToolbar-button-relief: normal;
+
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: shade(@osd_bg, 0.8);
+    background-color: @osd_bg;
+    background-image: none;
+    color: @osd_fg;
+}
+
+.osd toolbar button {
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@osd_bg, 0.8);
+    border-radius: 2px;
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+    color: @osd_fg;
+}
+
+.osd combobox button.combo:hover {
+    border-color: shade(@osd_bg, 0.7);
+    background-color: shade(@osd_bg, 1.10);
+    background-image: none;
+}
+
+.osd combobox button.combo:checked {
+    border-color: shade(@osd_bg, 0.8);
+    background-color: shade(@osd_bg, 0.95);
+    background-image: none;
+}
+
+.osd combobox button.combo:checked:hover {
+    border-color: shade(@osd_bg, 0.7);
+}
+
+.osd toolbar button:focus,
+.osd combobox button.combo:hover:focus,
+.osd combobox button.combo:checked:focus,
+.osd combobox button.combo:checked:hover:focus {
+    border-color: shade(@osd_bg, 0.7);
+}
+
+.osd toolbar button:disabled {
+    border-color: shade(@osd_bg, 0.85);
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+}
+
+.osd combobox button.combo:checked *:disabled {
+    border-color: shade(@osd_bg, 0.75);
+    background-color: shade(@osd_bg, 0.80);
+    background-image: none;
+}
+
+.osd toolbar button:first-child {
+    border-radius: 2px 0 0 2px;
+    border-width: 1px 0 1px 1px;
+    box-shadow: inset -1px 0 shade(@osd_bg, 0.9);
+}
+
+.osd toolbar button:last-child {
+    box-shadow: none;
+    border-radius: 0 2px 2px 0;
+    border-width: 1px 1px 1px 0;
+}
+
+.osd toolbar button:only-child,
+.osd toolbar toolbutton,
+.osd toolbar toolbutton:only-child,
+.osd toolbar toolbutton:last-child,
+.osd toolbar toolbutton:first-child {
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+}
+
+.osd toolbar separator,
+.osd toolbar.separator {
+    color: shade(@osd_bg, 0.9);
+}
+
+.osd scale slider {
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+    /* we will draw the border using box shadow for now */
+    box-shadow: inset 1px 0 shade(@osd_bg, 0.8),
+                inset 0 1px shade(@osd_bg, 0.8),
+                inset -1px 0 shade(@osd_bg, 0.8),
+                inset 0 -1px shade(@osd_bg, 0.8);
+}
+
+.osd scale slider:hover {
+    box-shadow: inset 1px 0 shade(@osd_bg, 0.7),
+                inset 0 1px shade(@osd_bg, 0.7),
+                inset -1px 0 shade(@osd_bg, 0.7),
+                inset 0 -1px shade(@osd_bg, 0.7);
+}
+
+.osd scale slider:disabled {
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+    box-shadow: inset 1px 0 shade(@osd_bg, 0.85),
+                inset 0 1px shade(@osd_bg, 0.85),
+                inset -1px 0 shade(@osd_bg, 0.85),
+                inset 0 -1px shade(@osd_bg, 0.85);
+}
+
+.osd scale trough {
+    border-color: shade(@osd_bg, 0.8);
+    background-color: shade(@osd_bg, 1.08);
+    background-image: none;
+}
+
+.osd scale trough.highlight {
+    border-color: @theme_selected_bg_color;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+.osd scale trough:disabled,
+.osd scale trough.highlight:disabled {
+    border-color: shade(@osd_bg, 0.85);
+    background-color: shade(@osd_bg, 0.9);
+    background-image: none;
+}
+
+/* used by gnome-settings-daemon's media-keys OSD */
+.osd trough {
+    background-color: shade(@osd_bg, 0.8);
+}
+
+.osd progressbar,
+progressbar.osd {
+    min-width: 2px;
+    min-height: 2px;
+    padding: 0;
+}
+
+.osd progressbar progress {
+    min-width: 2px;
+    min-height: 2px;
+    background-color: @osd_fg;
+}
+
+.osd progressbar trough,
+progressbar.osd trough {
+    min-width: 2px;
+    min-height: 2px;
+    padding: 0;
+    border-style: none;
+    border-radius: 0;
+    background-image: none;
+    background-color: transparent;
+}
+
+.osd progressbar progress,
+progressbar.osd progress {
+    border-style: none;
+    border-radius: 0;
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+}
+
+.osd view,
+.osd.view {
+    background-color: @osd_base;
+}
+
+.osd scrollbar trough {
+    background-color: @osd_bg;
+}
+
+.osd scrollbar slider {
+    min-width: 4px;
+    min-height: 4px;
+    border-width: 1px;
+    border-color: mix(shade(@osd_base, 0.87), @osd_fg, 0.21);
+    border-radius: 0;
+    background-color: mix(@osd_base, @osd_fg, 0.21);
+}
+
+.osd scrollbar slider:hover {
+    border-color: mix(shade(@osd_base, 0.87), @osd_fg, 0.31);
+    background-color: mix(@osd_base, @osd_fg, 0.31);
+}
+
+.osd scrollbar slider:active {
+    border-color: shade(@theme_selected_bg_color, 0.9);
+    background-color: @theme_selected_bg_color;
+}
+
+.osd iconview.cell:selected,
+.osd iconview.cell:selected:focus {
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 3px;
+    border-color: @osd_fg;
+    outline-color: transparent;
+}
+
+/* used by Documents */
+.osd .page-thumbnail {
+    border-style: solid;
+    border-width: 1px;
+    border-color: shade(@osd_bg, 0.9);
+    /* when there's no pixbuf yet */
+    background-color: @osd_bg;
+}

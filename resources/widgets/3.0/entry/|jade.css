@@ -1,0 +1,52 @@
+/*********
+ * entry *
+ *********/
+GtkComboBox.combobox-entry .button,
+.primary-toolbar GtkComboBox.combobox-entry .button,
+.menubar.toolbar GtkComboBox.combobox-entry .button,
+.header-bar GtkComboBox.combobox-entry .button,
+.entry {
+    -GtkWidget-focus-line-width: 0;
+    background-color: @base_color;
+    background-image: linear-gradient(to bottom,
+                                     shade(@base_color, 0.96),
+                                     @base_color);
+    padding: 5px 7px;
+    border: 1px solid #58616d;
+    color: @text_color;
+}
+
+.entry:selected,
+.entry:selected:focused {
+    background-color: @selected_bg_color;
+}
+
+GtkComboBox.combobox-entry .button:insensitive,
+.primary-toolbar GtkComboBox.combobox-entry .button:insensitive,
+.menubar.toolbar GtkComboBox.combobox-entry .button:insensitive,
+.header-bar GtkComboBox.combobox-entry .button:insensitive,
+.entry:insensitive {
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, transparent);
+    color: mix (@text_color, @base_color, 0.4);
+}
+
+.entry.readonly {
+    background-color: #f5f5f5;
+    background-image: none;
+}
+
+.primary-toolbar .entry.progressbar,
+.primary-toolbar .entry.progressbar,
+.menubar.toolbar .entry.progressbar,
+.menubar.toolbar .entry.progressbar,
+.header-bar .entry.progressbar,
+.header-bar .entry.progressbar,
+.entry.progressbar {
+    background-image: linear-gradient(to bottom,
+                                     shade (@selected_bg_color, 0.8),
+                                     shade (@selected_bg_color, 0.9) 10%,
+                                     shade (@selected_bg_color, 1.1));
+    border-width: 0;
+    color: @selected_fg_color;
+}

@@ -1,0 +1,133 @@
+/************
+ * notebook *
+ ************/
+.notebook {
+    background-color: (@theme_base_color;
+    background-image: none;
+    border-radius: 0;
+    padding: 0;
+    background-clip: border-box;
+    border-color: shade(@theme_base_color, 0.82);
+    border-width: 1px;
+    border-style: solid;
+}
+
+.notebook.frame {
+    border-width: 1px;
+}
+
+.notebook.header {
+    border-width: 0;
+    background-color: @theme_bg_color;
+}
+
+.notebook.header.frame {
+    border-color: @theme_bg_color;
+    box-shadow: none;
+}
+
+.notebook tab {
+    background-image: none;
+    background-color: shade(@theme_bg_color, 0.9);
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-width: 1px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.notebook tab:active {
+    border-color: shade(@theme_bg_color, 0.7);
+    border-style: solid;
+    border-width: 1px;
+    background-color: @theme_base_color;
+    background-image: none;
+    color: @fg_color;
+}
+
+.notebook tab GtkLabel {
+    /*padding: 1px;*/
+    padding: 4px 8px 4px 8px;
+}
+
+.notebook tab {
+    color: shade(@theme_bg_color, 0.48);
+}
+
+.notebook tab.top:active {
+    padding: 3px 7px 1px 7px;
+}
+
+.notebook tab.top {
+    padding: 2px 5px 0 5px;
+}
+
+.notebook tab.right:active {
+    padding: 4px 6px 4px 1px;
+    background-image: none;
+    background-color: @theme_base_color;
+}
+
+.notebook tab.right {
+    padding: 3px 4px 3px 0;
+    border-image-width: 1px 0;
+}
+
+.notebook tab.bottom:active {
+    padding: 1px 7px 4px 7px;
+    background-image: none;
+    background-color: @theme_base_color;
+}
+
+.notebook tab.bottom {
+    padding: 0 5px 3px 5px;
+    border-image-width: 0 1px;
+}
+
+.notebook tab.left:active {
+    padding: 4px 1px 4px 6px;
+    background-image: none;
+    background-color: @theme_base_color;
+}
+
+.notebook tab.left {
+    padding: 3px 0 3px 4px;
+    border-image-width: 1px 0;
+}
+
+.notebook tab .button {
+    padding: 0;
+}
+
+.notebook GtkDrawingArea {
+        background-color: shade(@theme_bg_color, 1.02);
+}
+
+.notebook.frame {
+    border-width: 1px;
+}
+
+/* close button styling */
+.notebook tab .button,
+.notebook tab .button:active,
+.notebook tab .button:hover {
+    padding: 1px;
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: transparent;
+    background-image: none;
+    background-color: transparent;
+    color: mix(@theme_text_color, @theme_base_color, 0.5);
+}
+
+.notebook tab .button:hover {
+    color: @theme_text_color;
+    border-color: shade(@theme_base_color, 0.8);
+}
+
+.notebook tab .button:active,
+.notebook tab .button:active:hover {
+    border-color: shade(@theme_base_color, 0.7);
+    background-color: shade(@theme_base_color, 0.95);
+}

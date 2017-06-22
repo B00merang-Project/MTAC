@@ -1,0 +1,18 @@
+/***********
+ * menubar *
+ ***********/
+menubar {
+    -GtkWidget-window-dragging: true;
+
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: shade(@menubar_bg_color, 0.8);
+    background-color: @menubar_bg_color;
+    background-size: 100% 100%;
+    background-image: url('titlebar/focused.png');
+    color: @menubar_fg_color;
+}
+
+menubar:backdrop {
+    background-image: url('titlebar/backdrop.png');
+}

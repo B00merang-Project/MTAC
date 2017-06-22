@@ -1,0 +1,45 @@
+switch {
+    color: @fg_color;
+    text-shadow: none;
+    border-radius: 2px;
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom,
+                                      #cecece,
+                                      #e8e8e8);
+}
+
+switch:checked {
+    text-shadow: none;
+    color: @selected_fg_color;
+    background-image: linear-gradient(to bottom,
+                                      shade(@selected_bg_color, 0.93),
+                                      shade(@selected_bg_color, 0.99));
+}
+
+switch:disabled {
+    color: shade (@bg_color, 0.6);
+    text-shadow: 0 1px alpha(shade(@bg_color, 1.25), 0.5);
+    background-image: linear-gradient(to bottom,
+                                      shade(@bg_color, 0.93),
+                                      shade(@bg_color, 0.99));
+}
+
+switch slider {
+    padding: 1px;
+    border-radius: 6px;
+    border-style: solid;
+    color: @fg_color;
+    border: 1px solid #58616d;
+    box-shadow: inset 0 0 2px 1px #c2c3c5;
+    text-shadow: 0 1px alpha (shade (@button_bg_color, 1.25), 0.4);
+    background-image: linear-gradient(to bottom, #fdfdfd,
+                                      #fafafa 11%,
+                                      #ededed 22%,
+                                      #e4e4e4 33%,
+                                      #dedede 44%,
+                                      #d7d7d7 55%,
+                                      #c9c9c9 66%,
+                                      #d2d2d2 77%,
+                                      #dddddd 88%,
+                                      #d0d1d1);
+}

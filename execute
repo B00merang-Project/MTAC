@@ -1,0 +1,134 @@
+#!/bin/bash
+
+# Modular Theme Architecture and Compiler
+# Version: v0.6
+# Script by Christian Medel (elbullazul) <cmedelahumada@gmail.com>
+# March 21st, 2017
+# License: GPL v3
+# All source code used in this project is based on the Numix 3.10 theme codebase
+
+# for multiple themes at a time
+qty=0
+
+declare -a themes
+themes=( luna embedded zune royale royale-dark olive metal whistler slate plex 8 vista aero glass green dark unity8 jade 10-light 10-dark )
+
+# if true we push to git
+web_update=false
+
+# theme(s) to assemble
+declare -a todo
+
+# get flags
+declare -a flags # Declare a new array
+flags=("$@")     # Host all flags in the array
+
+# recurrent operations
+clean() {
+   rm -rf compiler/Debug/3.0/*
+   rm -rf compiler/Debug/3.20/*
+   rm -rf release/*
+}
+
+wipe() {
+   rm -rf Debug/3.0/*
+   rm -rf Debug/3.20/*
+}
+
+push_web() {
+ if [ "$web_update" = true ]; then
+  ./../scripts/git_push.sh
+ fi
+}
+
+publish() {
+
+ compress
+ push_web
+
+}
+
+compress() {
+
+ echo -ne "\nCompressing... "
+ ./../scripts/compress.sh
+
+}
+
+# execute compile script in compiler folder
+compile() {
+ ./compile $1 '3.0'
+
+# case $1 in
+#  aero|glass|dark|green|unity8)
+#    ./../scripts/release.sh $1 3.0;;
+#  *)
+    ./compile $1 '3.20'
+    ./../scripts/release.sh $1 3.20 #;;
+ # esac
+
+ wipe
+}
+
+# compiling method
+assemble() {
+
+ clean
+ echo -e 'Compiling...\n'
+ cd compiler
+
+ # capital first letter
+ for f in ${!todo[@]}
+ do
+
+  fullname=${todo[$f]}
+  name="$(tr '[:lower:]' '[:upper:]' <<< ${fullname:0:1})${fullname:1}"
+
+  echo -n "$name..."
+  compile ${todo[$f]}
+  echo "[OK]"
+ done
+
+ publish
+
+ echo -e "Compiled Successfully"
+
+}
+
+# process flags
+for f in ${!flags[@]}
+do
+ case ${flags[$f]} in
+
+  --clean)
+   clean
+   echo 'Done'
+   exit
+  ;;
+
+  luna|embedded|royale|royale-dark|zune|plex|slate|metal|olive|whistler|8|vista|aero|glass|green|dark|unity8|jade|10-light|10-dark)
+   todo[$qty]="${flags[$f]}"
+   qty=$(($qty + 1))
+  ;;
+
+  --git-push)
+   echo 'Web update mode is On'
+   web_update=true
+  ;;
+
+  --all)
+   todo=("${themes[@]}")
+  ;;
+
+  -h)
+   echo "More info coming soon"
+  ;;
+  *)
+   echo "Theme/operator not supported"
+   exit
+  ;;
+ esac
+done
+
+# execute assembly procedure
+assemble
